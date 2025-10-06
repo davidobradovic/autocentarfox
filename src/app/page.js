@@ -219,8 +219,46 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Vehicles Section */}
+      <section className="w-full px-4 py-20 bg-white">
+        <div className="max-w-screen-xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-red-600 font-semibold text-sm uppercase tracking-wider">Aktuelna ponuda</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 mt-2">Istaknuta vozila</h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-red-400 to-red-600 mx-auto mb-4"></div>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">Pogledajte našu pažljivo odabranu kolekciju premium vozila</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            {vehicles?.data?.length > 0 ? vehicles.data.slice(0, 4).map(vehicle => (
+              <a href={`/vehicles/${vehicle.id}`} className="aspect-video bg-gray-200 rounded-2xl relative overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+                <img src={vehicle.image.replace('/sm/', '/lg/')} alt={vehicle.title} className="object-cover w-full h-full absolute top-0 left-0 group-hover:scale-110 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70 group-hover:from-black/50 group-hover:to-black/80 transition-all duration-500"></div>
+                <div className="p-6 relative z-10 w-full h-full flex flex-col justify-between">
+                  <h1 className="text-xl sm:text-2xl text-white font-bold drop-shadow-lg">{vehicle.title}</h1>
+                  <div className="w-full flex flex-col items-end gap-1">
+                    <div className="price-container bg-black/60 backdrop-blur-sm px-4 py-2 rounded-xl border border-white/20">
+                      <span className="text-xl sm:text-2xl font-extrabold text-white">{vehicle.display_price}</span>
+                    </div>
+                    <div className="bg-black/40 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/20">
+                      <span className="text-sm text-white ">{vehicle.state === 'used' ? 'Polovno' : 'Novo'}</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            )) : (
+              <div className="col-span-full text-center text-gray-500 py-12">Nema vozila za prikaz.</div>
+            )}
+          </div>
+          <div className="text-center">
+            <a className="inline-block py-5 px-10 bg-gradient-to-tr from-red-500 to-red-600 rounded-2xl text-white font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300 text-lg" href="/all-vehicles">
+              Pogledaj sva vozila
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Stats Section */}
-      <section className="w-full px-4 py-16 bg-gradient-to-br from-gray-900 via-black to-gray-900">
+      <section className="w-full px-4 py-16 bg-gradient-to-r from-gray-800 to-gray-900">
         <div className="max-w-screen-xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
 
@@ -295,7 +333,7 @@ export default function Home() {
             </div>
             <div className="relative">
               <div className="aspect-[4/5] bg-gradient-to-br from-red-100 to-red-50 rounded-3xl overflow-hidden shadow-2xl">
-                <img src="https://images.unsplash.com/photo-1562911791-c7a97b729ec5?w=800" alt="Arena Motors showroom" className="w-full h-full object-cover" />
+                <img src="https://d4n0y8dshd77z.cloudfront.net/listings/70166725/lg/img-1755502865-e4a99d3484df.jpg" alt="Arena Motors showroom" className="w-full h-full object-cover" />
               </div>
               {/* <div className="absolute -bottom-8 -left-8 bg-white p-8 rounded-2xl shadow-2xl border border-gray-100">
                 <div className="text-5xl font-extrabold text-gray-900 mb-1">15+</div>
@@ -401,43 +439,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Vehicles Section */}
-      <section className="w-full px-4 py-20 bg-white">
-        <div className="max-w-screen-xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-red-600 font-semibold text-sm uppercase tracking-wider">Aktuelna ponuda</span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 mt-2">Istaknuta vozila</h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-red-400 to-red-600 mx-auto mb-4"></div>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">Pogledajte našu pažljivo odabranu kolekciju premium vozila</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            {vehicles?.data?.length > 0 ? vehicles.data.slice(0, 4).map(vehicle => (
-              <a href={`/vehicles/${vehicle.id}`} className="aspect-video bg-gray-200 rounded-2xl relative overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-                <img src={vehicle.image.replace('/sm/', '/lg/')} alt={vehicle.title} className="object-cover w-full h-full absolute top-0 left-0 group-hover:scale-110 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70 group-hover:from-black/50 group-hover:to-black/80 transition-all duration-500"></div>
-                <div className="p-6 relative z-10 w-full h-full flex flex-col justify-between">
-                  <h1 className="text-xl sm:text-2xl text-white font-bold drop-shadow-lg">{vehicle.title}</h1>
-                  <div className="w-full flex flex-col items-end gap-1">
-                    <div className="price-container bg-black/60 backdrop-blur-sm px-4 py-2 rounded-xl border border-white/20">
-                      <span className="text-xl sm:text-2xl font-extrabold text-white">{vehicle.display_price}</span>
-                    </div>
-                    <div className="bg-black/40 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/20">
-                      <span className="text-sm text-white ">{vehicle.state === 'used' ? 'Polovno' : 'Novo'}</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            )) : (
-              <div className="col-span-full text-center text-gray-500 py-12">Nema vozila za prikaz.</div>
-            )}
-          </div>
-          <div className="text-center">
-            <a className="inline-block py-5 px-10 bg-gradient-to-tr from-red-500 to-red-600 rounded-2xl text-white font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300 text-lg" href="/all-vehicles">
-              Pogledaj sva vozila
-            </a>
-          </div>
-        </div>
-      </section>
+
 
       {/* Testimonials */}
       {/* <section className="w-full px-8 py-20 bg-gradient-to-br from-gray-900 via-black to-gray-900">
@@ -514,7 +516,7 @@ export default function Home() {
               </div>
               <div className="h-full min-h-[300px] lg:min-h-[400px] relative">
                 <img
-                  src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800"
+                  src="https://d4n0y8dshd77z.cloudfront.net/listings/70714043/lg/img-1757341847-fb7a7484ff48.jpg"
                   alt="Premium vehicles"
                   className="w-full h-full object-cover"
                 />

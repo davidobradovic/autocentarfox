@@ -314,7 +314,7 @@ function AllVehiclesContent() {
                             </div>
                             <div className="h-full min-h-[300px] lg:min-h-[400px] relative">
                                 <img
-                                    src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800"
+                                    src="https://d4n0y8dshd77z.cloudfront.net/listings/70714043/lg/img-1757341847-fb7a7484ff48.jpg"
                                     alt="Contact us"
                                     className="w-full h-full object-cover"
                                 />

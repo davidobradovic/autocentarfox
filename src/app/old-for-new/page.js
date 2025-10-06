@@ -274,7 +274,7 @@ export default function TradeInPage() {
                             </div>
                             <div className="h-full min-h-[300px] lg:min-h-[400px] relative">
                                 <img
-                                    src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800"
+                                    src="https://d4n0y8dshd77z.cloudfront.net/listings/70625505/lg/img-1757096795-69e993153b79.jpg"
                                     alt="Car exchange"
                                     className="w-full h-full object-cover"
                                 />

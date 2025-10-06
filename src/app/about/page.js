@@ -6,7 +6,7 @@ export default function About() {
         <div className="w-screen h-screen overflow-auto">
             {/* Hero Section */}
             <section className="relative w-screen h-[60vh] flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-900">
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1562911791-c7a97b729ec5?w=1200')] bg-cover bg-center opacity-20"></div>
+                <div className="absolute inset-0 bg-[url('https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrJQ28tAsPR_PXbQWxd8ZeEPMaqJtYdacbYdAuR2nvSPLTiGPfQ-41KNI5p4aFdhOnqjmDoNgP2TD3aVtU5z1k28WV3gAi5h0VstMQA-izm2Xrhi-OpY-AgmWfhz_jS00CBu20=s1360-w1360-h1020-rw')] bg-cover bg-center opacity-20"></div>
                 <div className="relative z-10 text-center px-8">
                     <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 drop-shadow-2xl">
                         O nama
@@ -41,7 +41,7 @@ export default function About() {
                         <div className="relative">
                             <div className="aspect-square bg-gradient-to-br from-red-100 to-red-50 rounded-3xl overflow-hidden shadow-2xl">
                                 <img
-                                    src="https://images.unsplash.com/photo-1486496146582-9ffcd0b2b2b7?w=800"
+                                    src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrJQ28tAsPR_PXbQWxd8ZeEPMaqJtYdacbYdAuR2nvSPLTiGPfQ-41KNI5p4aFdhOnqjmDoNgP2TD3aVtU5z1k28WV3gAi5h0VstMQA-izm2Xrhi-OpY-AgmWfhz_jS00CBu20=s1360-w1360-h1020-rw"
                                     alt="Arena Motors showroom"
                                     className="w-full h-full object-cover"
                                 />
@@ -158,7 +158,7 @@ export default function About() {
                             </div>
                             <div className="p-6 flex flex-col justify-between h-full">
                                 <div className="w-full">
-                                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Saša Kutlač</h3>
+                                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Saša Kutlača</h3>
                                     <p className="text-red-600 font-semibold mb-3">Prodajni radnik</p>
                                     <p className="text-gray-600">Posvećen pružanju personalnog iskustva svakom kupcu</p>
                                 </div>
