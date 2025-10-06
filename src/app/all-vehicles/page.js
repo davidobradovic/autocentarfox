@@ -5,9 +5,9 @@ import FooterArena from "@/components/Footer";
 import SmallCarCard from "@/components/SmallCarCard";
 import axios from "axios";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 
-export default function Home() {
+function AllVehiclesContent() {
     const searchParams = useSearchParams();
 
     const [vehicles, setVehicles] = useState(null);
@@ -42,7 +42,7 @@ export default function Home() {
             setSearchTerm(qParam);
         }
         setIsInitialized(true);
-    }, []);
+    }, [searchParams]);
 
     useEffect(() => {
         if (isInitialized) {
@@ -89,7 +89,7 @@ export default function Home() {
         }
         return pages;
     };
-    
+
     return (
         <div className="w-screen h-screen overflow-auto">
             {/* Hero Section with Search */}
@@ -328,5 +328,22 @@ export default function Home() {
 
             <FooterArena />
         </div>
+    );
+}
+
+
+
+export default function Home() {
+    return (
+        <Suspense fallback={
+            <div className="w-screen h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100">
+                <div className="text-center">
+                    <div className="inline-block w-16 h-16 border-4 border-red-500 border-t-transparent rounded-full animate-spin mb-4"></div>
+                    <p className="text-gray-600 font-medium">Učitavanje...</p>
+                </div>
+            </div>
+        }>
+            <AllVehiclesContent />
+        </Suspense>
     );
 }
