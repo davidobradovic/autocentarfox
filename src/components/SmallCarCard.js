@@ -33,7 +33,7 @@ export default function SmallCarCard({ vehicle }) {
                                 </span>
                             ) : (
                                 <span className="bg-orange-500 text-white text-xs font-medium px-1.5 py-0.5 rounded shadow-md">
-                                    Rezervisano
+                                    U dolasku
                                 </span>
                             )}
                         </div>
@@ -48,11 +48,11 @@ export default function SmallCarCard({ vehicle }) {
                     </h3>
 
                     {/* Special Labels Grid */}
-                    <div className="grid grid-cols-3 gap-1.5 mb-2.5">
+                    <div className="flex flex-wrap gap-1.5 mb-2.5">
                         {vehicle.special_labels?.map((label, index) => (
                             <div key={index} className="bg-gray-50 rounded p-1.5 border border-gray-200 text-center">
                                 <p className="text-[8px] md:text-xs font-bold text-gray-900 truncate">
-                                    {label.value}
+                                    <span className='capitalize'>{label.value}</span> {label.unit}
                                 </p>
                             </div>
                         ))}

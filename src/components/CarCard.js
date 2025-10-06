@@ -42,14 +42,14 @@ export default function CarCard({ vehicle }) {
                             </span>
                         ) : (
                             <span className="bg-orange-500 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg">
-                                Rezervisano
+                                U dolasku
                             </span>
                         )}
                     </div>
 
                     {/* Price Badge */}
-                    <div className="absolute bottom-3 left-3">
-                        <span className="bg-gray-900/95 backdrop-blur-sm text-white text-3xl font-bold px-4 py-2 rounded-lg shadow-lg">
+                    <div className="absolute bottom-5 left-3">
+                        <span className="bg-gray-900/50 backdrop-blur-sm text-white text-lg md:text-2xl font-bold px-4 py-2 rounded-lg shadow-lg">
                             {vehicle.display_price}
                         </span>
                     </div>
@@ -75,7 +75,7 @@ export default function CarCard({ vehicle }) {
                                         </p>
                                     </div>
                                     <p className="text-lg font-bold text-gray-900">
-                                        {label.value} {label.unit}
+                                        <span className='capitalize'>{label.value}</span> {label.unit}
                                     </p>
                                 </div>
                             );
@@ -109,7 +109,7 @@ export default function CarCard({ vehicle }) {
                                 {vehicle.title}
                             </h3>
 
-                            <div className="flex flex-wrap gap-1 mb-2">
+                            {/* <div className="flex flex-wrap gap-1 mb-2">
                                 <span className="bg-gray-100 text-gray-700 text-xs font-medium px-2 py-0.5 rounded">
                                     {vehicle.state === 'used' ? 'Polovno' : 'Novo'}
                                 </span>
@@ -122,22 +122,22 @@ export default function CarCard({ vehicle }) {
                                         Rezervisano
                                     </span>
                                 )}
-                            </div>
+                            </div> */}
 
                             {/* Special Labels */}
-                            <div className="space-y-1">
+                            <div className="flex flex-wrap gap-2">
                                 {vehicle.special_labels?.map((label, index) => (
-                                    <div key={index} className="flex items-center justify-between text-xs">
-                                        <span className="text-gray-600">{label.label}:</span>
-                                        <span className="font-semibold text-gray-900">{label.value}</span>
+                                    <div key={index} className="flex items-center gap-1 p-1 bg-gray-50 rounded border border-gray-200 text-xs">
+                                        {/* <span className="text-gray-600">{label.label}:</span> */}
+                                        <span className="font-semibold text-gray-900"><span className='capitalize'>{label.value}</span> {label.unit}</span>
                                     </div>
                                 ))}
                             </div>
                         </div>
 
                         {/* Price */}
-                        <div className="mt-2">
-                            <span className="text-lg font-bold text-gray-900">
+                        <div className="mt-1">
+                            <span className="text-2xl font-bold text-gray-900">
                                 {vehicle.display_price}
                             </span>
                         </div>

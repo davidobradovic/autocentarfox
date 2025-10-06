@@ -189,7 +189,7 @@ function AllVehiclesContent() {
                     {vehicles?.data?.length > 0 ? (
                         <div className={`grid ${cardType === 'small'
                                 ? 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4'
-                                : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'
+                                : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-6'
                             } mb-12`}>
                             {vehicles.data.map((vehicle, idx) => (
                                 <div key={idx} className="w-full">

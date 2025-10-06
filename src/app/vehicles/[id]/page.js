@@ -106,9 +106,15 @@ export default function VehiclePage() {
                         <div className="text-2xl sm:text-3xl font-bold text-black mb-1 transition-all duration-300">
                             {vehicle.display_price}
                         </div>
-                        <button className="bg-red-600 text-white px-4 py-1 rounded text-sm w-full sm:w-auto transition-colors duration-300 hover:bg-red-700">
-                            Dostupno odmah
-                        </button>
+                        {vehicle.available ? (
+                            <span className="bg-green-600 text-white px-4 py-1 rounded text-sm w-full sm:w-auto transition-colors duration-300 hover:bg-green-700">
+                                Dostupno
+                            </span>
+                        ) : (
+                                <span className="bg-orange-600 text-white px-4 py-1 rounded text-sm w-full sm:w-auto transition-colors duration-300 hover:bg-orange-700">
+                                U dolasku
+                            </span>
+                        )}
                     </div>
                 </div>
             </div>
