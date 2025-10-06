@@ -13,7 +13,7 @@ export default function Header() {
         <header className="bg-white shadow-sm w-full z-50">
             <div className="p-4 flex items-center justify-between">
                 {/* Logo */}
-                <div className="flex items-center gap-2">
+                <a href="/" className="flex items-center gap-2">
                     <img
                         src="/logo.png"
                         className="w-10 h-10 rounded-lg"
@@ -22,7 +22,7 @@ export default function Header() {
                     <h1 className="text-xl font-semibold">
                         <strong>Arena</strong> Motors
                     </h1>
-                </div>
+                </a>
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex items-center gap-6 text-sm font-medium relative">

@@ -191,7 +191,7 @@ export default function Home() {
   return (
     <div className="w-screen h-screen overflow-auto">
       {/* Hero Section with Search */}
-      <section className="relative w-screen h-[90vh] flex items-end p-8 justify-center bg-[url('https://res.cloudinary.com/dxo3z5off/image/upload/f_auto,q_auto/v1/topc/qqrf1w1g7lpjzispybry')] bg-cover bg-bottom">
+      <section className="relative w-screen h-[90vh] flex items-end p-4 justify-center bg-[url('https://res.cloudinary.com/dxo3z5off/image/upload/f_auto,q_auto/v1/topc/qqrf1w1g7lpjzispybry')] bg-cover bg-bottom">
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
         <div className="relative z-10 w-full max-w-5xl mb-12">
           <div className="text-center mb-8">
@@ -220,7 +220,7 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="w-full px-8 py-16 bg-gradient-to-br from-gray-900 via-black to-gray-900">
+      <section className="w-full px-4 py-16 bg-gradient-to-br from-gray-900 via-black to-gray-900">
         <div className="max-w-screen-xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
 
@@ -242,7 +242,7 @@ export default function Home() {
       </section>
 
       {/* About Arena Motors */}
-      <section className="w-full px-8 py-20 bg-white">
+      <section className="w-full px-4 py-20 bg-white">
         <div className="max-w-screen-xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -307,7 +307,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="w-full px-8 py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+      <section className="w-full px-4 py-20 bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="max-w-screen-xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-red-600 font-semibold text-sm uppercase tracking-wider">Naše usluge</span>
@@ -402,7 +402,7 @@ export default function Home() {
       </section>
 
       {/* Vehicles Section */}
-      <section className="w-full px-8 py-20 bg-white">
+      <section className="w-full px-4 py-20 bg-white">
         <div className="max-w-screen-xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-red-600 font-semibold text-sm uppercase tracking-wider">Aktuelna ponuda</span>
@@ -412,7 +412,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {vehicles?.data?.length > 0 ? vehicles.data.slice(0, 4).map(vehicle => (
-              <div className="aspect-video bg-gray-200 rounded-2xl relative overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+              <a href={`/vehicles/${vehicle.id}`} className="aspect-video bg-gray-200 rounded-2xl relative overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
                 <img src={vehicle.image.replace('/sm/', '/lg/')} alt={vehicle.title} className="object-cover w-full h-full absolute top-0 left-0 group-hover:scale-110 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70 group-hover:from-black/50 group-hover:to-black/80 transition-all duration-500"></div>
                 <div className="p-6 relative z-10 w-full h-full flex flex-col justify-between">
@@ -426,7 +426,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </a>
             )) : (
               <div className="col-span-full text-center text-gray-500 py-12">Nema vozila za prikaz.</div>
             )}
@@ -492,7 +492,7 @@ export default function Home() {
       </section> */}
 
       {/* CTA Section */}
-      <section className="w-full px-8 py-20 bg-white">
+      <section className="w-full px-4 py-20 bg-white">
         <div className="max-w-screen-xl mx-auto">
           <div className="bg-gradient-to-br from-red-500 to-red-600 rounded-3xl overflow-hidden shadow-2xl">
             <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
