@@ -19,7 +19,7 @@ function AllVehiclesContent() {
 
     const fetchVehicles = async (page = 1, q = '') => {
         try {
-            const res = await axios.get(`https://olx.ba/api/search`, {
+            const res = await axios.get(`/api/proxy/api/search`, {
                 params: {
                     attr: '',
                     attr_encoded: 1,
@@ -34,7 +34,6 @@ function AllVehiclesContent() {
             console.error("Greška prilikom dohvata vozila:", err);
         }
     };
-
     useEffect(() => {
         const qParam = searchParams.get('q');
         if (qParam) {

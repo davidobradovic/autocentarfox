@@ -18,8 +18,12 @@ function AllVehiclesContent() {
     const [isInitialized, setIsInitialized] = useState(false);
 
     const fetchVehicles = async (page = 1) => {
-        const res = await axios.get(`https://olx.ba/api/users/ArenaMotors/listings/finished?page=${page}`)
-        setVehicles(res.data);
+        try {
+            const res = await axios.get(`/api/proxy/vehicles?page=${page}`);
+            setVehicles(res.data);
+        } catch (err) {
+            console.error("Greška prilikom dohvata vozila:", err);
+        }
     };
 
     useEffect(() => {

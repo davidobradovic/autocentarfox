@@ -26,9 +26,11 @@ export default function VehiclePage() {
     useEffect(() => {
         if (!id) return;
         setLoading(true);
-        axios.get(`https://olx.ba/api/listings/${id}`)
-            .then(res => {
-                setVehicle(res.data);
+
+        fetch(`/api/proxy/api/listings/${id}`)
+            .then(res => res.json())
+            .then(data => {
+                setVehicle(data);
                 setLoading(false);
             })
             .catch(() => {

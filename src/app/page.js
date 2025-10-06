@@ -175,10 +175,14 @@ export default function Home() {
     }
   };
 
-  const fetchVehicles = async (query) => {
-    const res = await axios.get(`https://olx.ba/api/search?&attr=&attr_encoded=1&user_id=3300229&per_page=20`);
-    setVehicles(res.data);
-  }
+  const fetchVehicles = async () => {
+    try {
+      const res = await axios.get(`/api/proxy/api/search?attr=&attr_encoded=1&user_id=3300229&per_page=20`);
+      setVehicles(res.data)
+    } catch (err) {
+      console.error("Greška prilikom dohvata vozila:", err);
+    }
+  };
 
   useEffect(() => {
     fetchVehicles()
