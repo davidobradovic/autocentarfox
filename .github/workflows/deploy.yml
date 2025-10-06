@@ -32,4 +32,4 @@ jobs:
             docker pull davidobradovic/arenamotorsba:latest
             docker stop arenamotorsba || true
             docker rm arenamotorsba || true
-            docker run -d --name arenamotorsba -p 7070:3000 davidobradovic/arenamotorsba:latest
+            docker run -d --name arenamotorsba -p 6575:3000 davidobradovic/arenamotorsba:latest
