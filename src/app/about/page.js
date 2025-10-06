@@ -56,7 +56,7 @@ export default function About() {
                 <div className="max-w-screen-xl mx-auto">
                     <div className="text-center mb-16">
                         <span className="text-red-600 font-semibold text-sm uppercase tracking-wider">Naše vrijednosti</span>
-                        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 mt-2">Što nas čini posebnima</h2>
+                        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 mt-2">Šta nas čini posebnima</h2>
                         <div className="w-20 h-1 bg-gradient-to-r from-red-400 to-red-600 mx-auto"></div>
                     </div>
 
@@ -107,7 +107,7 @@ export default function About() {
                         <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Arena Motors u brojkama</h2>
                         <div className="w-20 h-1 bg-gradient-to-r from-red-400 to-red-600 mx-auto"></div>
                     </div>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div className="text-center">
                             <div className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent mb-2">1000+</div>
                             <p className="text-gray-400 text-base md:text-lg">Zadovoljnih kupaca</p>
@@ -115,10 +115,6 @@ export default function About() {
                         <div className="text-center">
                             <div className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent mb-2">500+</div>
                             <p className="text-gray-400 text-base md:text-lg">Vozila godišnje</p>
-                        </div>
-                        <div className="text-center">
-                            <div className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent mb-2">15+</div>
-                            <p className="text-gray-400 text-base md:text-lg">Godina tradicije</p>
                         </div>
                         <div className="text-center">
                             <div className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent mb-2">100%</div>
@@ -141,51 +137,50 @@ export default function About() {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {/* Dijana - Direktor */}
                         <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-50 to-white border border-gray-200 hover:shadow-2xl transition-all duration-300">
                             <div className="aspect-square bg-gradient-to-br from-red-100 to-red-50 overflow-hidden">
-                                <img
-                                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500"
-                                    alt="Team member"
-                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                />
+                                {/* Ovdje ide slika ako želiš */}
                             </div>
-                            <div className="p-6">
-                                <h3 className="text-2xl font-bold text-gray-900 mb-2">Admir Kovačević</h3>
-                                <p className="text-red-600 font-semibold mb-3">Direktor prodaje</p>
-                                <p className="text-gray-600">Stručnjak sa 15+ godina iskustva u automobilskoj industriji</p>
+                            <div className="p-6 flex flex-col justify-between h-full">
+                                <div className="w-full">
+                                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Dijana Tomić</h3>
+                                    <p className="text-red-600 font-semibold mb-3">Direktor prodaje</p>
+                                    <p className="text-gray-600">Stručnjak sa 10+ godina iskustva u automobilskoj industriji</p>
+                                </div>
                             </div>
                         </div>
 
+                        {/* Saša - Prodajni radnik */}
                         <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-50 to-white border border-gray-200 hover:shadow-2xl transition-all duration-300">
-                            <div className="aspect-square bg-gradient-to-br from-red-100 to-red-50 overflow-hidden">
-                                <img
-                                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500"
-                                    alt="Team member"
-                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                />
+                            <div className="aspect-square bg-gradient-to-br from-blue-100 to-blue-50 overflow-hidden">
+                                {/* Slika */}
                             </div>
-                            <div className="p-6">
-                                <h3 className="text-2xl font-bold text-gray-900 mb-2">Amira Hadžić</h3>
-                                <p className="text-red-600 font-semibold mb-3">Savjetnik za kupce</p>
-                                <p className="text-gray-600">Posvećena pružanju personalnog iskustva svakom kupcu</p>
+                            <div className="p-6 flex flex-col justify-between h-full">
+                                <div className="w-full">
+                                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Saša Kutlač</h3>
+                                    <p className="text-red-600 font-semibold mb-3">Prodajni radnik</p>
+                                    <p className="text-gray-600">Posvećen pružanju personalnog iskustva svakom kupcu</p>
+                                </div>
                             </div>
                         </div>
 
+                        {/* Nemanja - Prodajni radnik */}
                         <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-50 to-white border border-gray-200 hover:shadow-2xl transition-all duration-300">
-                            <div className="aspect-square bg-gradient-to-br from-red-100 to-red-50 overflow-hidden">
-                                <img
-                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500"
-                                    alt="Team member"
-                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                />
+                            <div className="aspect-square bg-gradient-to-br from-green-100 to-green-50 overflow-hidden">
+                                {/* Slika */}
                             </div>
-                            <div className="p-6">
-                                <h3 className="text-2xl font-bold text-gray-900 mb-2">Emir Softić</h3>
-                                <p className="text-red-600 font-semibold mb-3">Tehnički direktor</p>
-                                <p className="text-gray-600">Certificirani mehaničar i stručnjak za procjenu vozila</p>
+                            <div className="p-6 flex flex-col justify-between h-full">
+                                <div className="w-full">
+                                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Nemanja Lubura</h3>
+                                    <p className="text-red-600 font-semibold mb-3">Prodajni radnik</p>
+                                    <p className="text-gray-600">Posvećen pružanju personalnog iskustva svakom kupcu</p>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
+
                 </div>
             </section>
 
