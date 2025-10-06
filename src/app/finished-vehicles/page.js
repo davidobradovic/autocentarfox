@@ -19,13 +19,13 @@ function AllVehiclesContent() {
 
     const fetchVehicles = async (page = 1) => {
         try {
-            const res = await axios.get(`/api/proxy/vehicles?page=${page}`);
+            const res = await axios.get(`/api/proxy/api/users/arenamotors/listings/finished?page=${page}`);
             setVehicles(res.data);
         } catch (err) {
             console.error("Greška prilikom dohvata vozila:", err);
         }
     };
-
+    
     useEffect(() => {
         const qParam = searchParams.get('q');
         if (qParam) {
@@ -100,7 +100,7 @@ function AllVehiclesContent() {
             </section>
 
             {/* Vehicles Section */}
-            <section className="w-full px-4 py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+            <section className="w-full px-8 py-20 bg-gradient-to-br from-gray-50 to-gray-100">
                 <div className="max-w-screen-2xl mx-auto">
                     {/* Header sa View Toggle */}
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
