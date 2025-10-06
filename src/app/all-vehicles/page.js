@@ -1,176 +1,5 @@
-// 'use client';
-// import CarCard from "@/components/CarCard";
-// import SmallCarCard from "@/components/SmallCarCard";
-// import axios from "axios";
-// import { useSearchParams } from "next/navigation";
-// import { useEffect, useState } from "react";
-
-// export default function Home() {
-
-//     const searchParams = useSearchParams();
-
-//     const [vehicles, setVehicles] = useState(null);
-//     const [currentPage, setCurrentPage] = useState(1);
-//     const [cardType, setCardType] = useState('small');
-//     const [searchTerm, setSearchTerm] = useState('');
-//     const [query, setQuery] = useState('');
-//     const [isInitialized, setIsInitialized] = useState(false);
-
-//     // --- Fetch vozila ---
-//     const fetchVehicles = async (page = 1, q = '') => {
-//         try {
-//             const res = await axios.get(`https://olx.ba/api/search`, {
-//                 params: {
-//                     attr: '',
-//                     attr_encoded: 1,
-//                     user_id: 3300229,
-//                     per_page: 40,
-//                     page,
-//                     q, // koristi q parametar koji proslijeđujemo
-//                 },
-//             });
-//             setVehicles(res.data);
-//         } catch (err) {
-//             console.error("Greška prilikom dohvata vozila:", err);
-//         }
-//     };
-
-//     // Inicijalizacija - učitaj q parametar iz URL-a SAMO JEDNOM
-//     useEffect(() => {
-//         const qParam = searchParams.get('q');
-//         if (qParam) {
-//             setQuery(qParam);
-//             setSearchTerm(qParam);
-//         }
-//         setIsInitialized(true);
-//     }, []); // prazan dependency array - izvršava se samo jednom
-
-//     // Fetch vozila kada se promijeni stranica ili query
-//     useEffect(() => {
-//         if (isInitialized) {
-//             fetchVehicles(currentPage, query);
-//         }
-//     }, [currentPage, query, isInitialized]);
-
-//     // Submit handler za pretragu
-//     const handleSearchSubmit = (e) => {
-//         e.preventDefault();
-//         setCurrentPage(1);
-//         setQuery(searchTerm.trim());
-//     };
-
-//     // Pagination handler
-//     const handlePageChange = (page) => {
-//         if (page !== currentPage && page > 0 && page <= vehicles?.meta?.last_page) {
-//             setCurrentPage(page);
-//             window.scrollTo({ top: 0, behavior: 'smooth' });
-//         }
-//     };
-
-//     return (
-//         <div className="w-screen h-screen overflow-auto">
-//             {/* --- Brza pretraga --- */}
-//             <section className="main-section w-screen flex items-end p-8 justify-center bg-[url('https://res.cloudinary.com/dxo3z5off/image/upload/f_auto,q_auto/v1/topc/qqrf1w1g7lpjzispybry')] bg-cover bg-bottom">
-//                 <div className="quick-search p-6 rounded bg-white/20 text-white backdrop-blur-lg border border-gray-50/50 w-full max-w-4xl">
-//                     <h2 className="text-2xl mb-4 font-semibold">Brza Pretraga</h2>
-//                     <form className="flex gap-3" onSubmit={handleSearchSubmit}>
-//                         <input
-//                             type="text"
-//                             placeholder="Unesite pojam za pretragu"
-//                             className="bg-gray-100/10 text-white outline-none rounded px-3 py-2 flex-1"
-//                             value={searchTerm}
-//                             onChange={(e) => setSearchTerm(e.target.value)}
-//                         />
-//                         <button
-//                             type="submit"
-//                             className="bg-gradient-to-tr from-red-400 to-red-600 text-white rounded px-6 py-2 hover:brightness-125 transition"
-//                         >
-//                             Pretraži
-//                         </button>
-//                     </form>
-//                     <p className="text-xs italic mt-2 opacity-60">
-//                         Unesite pojam za pretragu kako biste pronašli odgovarajuće vozilo
-//                     </p>
-//                 </div>
-//             </section>
-
-//             {/* --- Lista vozila --- */}
-//             <section className="w-full px-8 py-12 bg-gradient-to-br from-white/80 to-gray-100/60 backdrop-blur-2xl">
-//                 <div className="mx-auto">
-//                     <h2 className="text-3xl font-bold mb-8 text-gray-800">
-//                         Vozila u ponudi
-//                     </h2>
-
-//                     {/* Tip kartice */}
-//                     <div className="flex gap-4 mb-6">
-//                         <button
-//                             className={`px-4 py-2 rounded ${cardType === 'small' ? 'bg-red-500 text-white' : 'bg-gray-200'}`}
-//                             onClick={() => setCardType('small')}
-//                         >
-//                             Male kartice
-//                         </button>
-//                         <button
-//                             className={`px-4 py-2 rounded ${cardType === 'large' ? 'bg-red-500 text-white' : 'bg-gray-200'}`}
-//                             onClick={() => setCardType('large')}
-//                         >
-//                             Velike kartice
-//                         </button>
-//                     </div>
-
-//                     {/* Vozila */}
-//                     <div className={`grid ${cardType === 'small' ? 'grid-cols-2 md:grid-cols-3 lg:grid-cols-6' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'} gap-4 mb-4`}>
-//                         {vehicles?.data?.length > 0 ? (
-//                             vehicles.data.map((vehicle, idx) => (
-//                                 <div key={idx} className="w-full">
-//                                     {cardType === 'small' ? (
-//                                         <SmallCarCard vehicle={vehicle} />
-//                                     ) : (
-//                                         <CarCard vehicle={vehicle} />
-//                                     )}
-//                                 </div>
-//                             ))
-//                         ) : (
-//                             <div className="col-span-full text-center text-gray-500 py-12">
-//                                 {query ? 'Nema rezultata za pretragu.' : 'Nema vozila za prikaz.'}
-//                             </div>
-//                         )}
-//                     </div>
-
-//                     {/* Paginacija */}
-//                     {vehicles?.meta && vehicles.meta.last_page > 1 && (
-//                         <div className="flex justify-center items-center gap-2 my-8">
-//                             <button
-//                                 className="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300"
-//                                 disabled={currentPage === 1}
-//                                 onClick={() => handlePageChange(currentPage - 1)}
-//                             >
-//                                 &lt;
-//                             </button>
-//                             {Array.from({ length: vehicles.meta.last_page }, (_, i) => (
-//                                 <button
-//                                     key={i + 1}
-//                                     className={`px-3 py-1 rounded ${currentPage === i + 1 ? 'bg-red-500 text-white' : 'bg-gray-200 hover:bg-gray-300'}`}
-//                                     onClick={() => handlePageChange(i + 1)}
-//                                 >
-//                                     {i + 1}
-//                                 </button>
-//                             ))}
-//                             <button
-//                                 className="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300"
-//                                 disabled={currentPage === vehicles.meta.last_page}
-//                                 onClick={() => handlePageChange(currentPage + 1)}
-//                             >
-//                                 &gt;
-//                             </button>
-//                         </div>
-//                     )}
-//                 </div>
-//             </section>
-//         </div>
-//     );
-// }
-
 'use client';
+
 import CarCard from "@/components/CarCard";
 import FooterArena from "@/components/Footer";
 import SmallCarCard from "@/components/SmallCarCard";
@@ -179,7 +8,6 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-
     const searchParams = useSearchParams();
 
     const [vehicles, setVehicles] = useState(null);
@@ -189,7 +17,6 @@ export default function Home() {
     const [query, setQuery] = useState('');
     const [isInitialized, setIsInitialized] = useState(false);
 
-    // --- Fetch vozila ---
     const fetchVehicles = async (page = 1, q = '') => {
         try {
             const res = await axios.get(`https://olx.ba/api/search`, {
@@ -208,7 +35,6 @@ export default function Home() {
         }
     };
 
-    // Inicijalizacija - učitaj q parametar iz URL-a SAMO JEDNOM
     useEffect(() => {
         const qParam = searchParams.get('q');
         if (qParam) {
@@ -218,21 +44,18 @@ export default function Home() {
         setIsInitialized(true);
     }, []);
 
-    // Fetch vozila kada se promijeni stranica ili query
     useEffect(() => {
         if (isInitialized) {
             fetchVehicles(currentPage, query);
         }
     }, [currentPage, query, isInitialized]);
 
-    // Submit handler za pretragu
     const handleSearchSubmit = (e) => {
         e.preventDefault();
         setCurrentPage(1);
         setQuery(searchTerm.trim());
     };
 
-    // Pagination handler
     const handlePageChange = (page) => {
         if (page !== currentPage && page > 0 && page <= vehicles?.meta?.last_page) {
             setCurrentPage(page);
@@ -240,16 +63,13 @@ export default function Home() {
         }
     };
 
-    // Generiši stranice za paginaciju sa elipsama
     const generatePageNumbers = () => {
         const pages = [];
         const totalPages = vehicles?.meta?.last_page || 1;
         const current = currentPage;
 
         if (totalPages <= 7) {
-            for (let i = 1; i <= totalPages; i++) {
-                pages.push(i);
-            }
+            for (let i = 1; i <= totalPages; i++) pages.push(i);
         } else {
             if (current <= 3) {
                 for (let i = 1; i <= 4; i++) pages.push(i);
@@ -269,7 +89,7 @@ export default function Home() {
         }
         return pages;
     };
-
+    
     return (
         <div className="w-screen h-screen overflow-auto">
             {/* Hero Section with Search */}

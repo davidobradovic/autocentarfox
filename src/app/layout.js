@@ -29,18 +29,12 @@ export const metadata = {
     'Arena Motors', 'Automobili', 'vozila', 'bih',
     'prodaja vozila', 'luksuzni automobili', 'sarajevo', 'auto plac', 'prodavac automobila'
   ],
-  themeColor: '#000000',
   icons: {
     icon: 'https://i.ibb.co/L6LH4BZ/apploog.png',
     apple: 'https://arenamotors.ba/wp-content/uploads/2023/01/cropped-Screenshot-2023-01-04-at-22.23.29-192x192.png'
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: 'no'
-  }
 };
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
