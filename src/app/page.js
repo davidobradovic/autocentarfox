@@ -191,7 +191,7 @@ export default function Home() {
   return (
     <div className="w-screen h-screen overflow-auto">
       {/* Hero Section with Search */}
-      <section className="relative w-screen h-[90vh] flex items-end p-4 justify-center bg-[url('https://res.cloudinary.com/dxo3z5off/image/upload/f_auto,q_auto/v1/topc/qqrf1w1g7lpjzispybry')] bg-cover bg-bottom">
+      <section className="relative w-screen h-[90vh] flex items-end p-4 justify-center bg-[url('https://res.cloudinary.com/dxo3z5off/image/upload/w_1000/q_auto/f_auto/v1759824802/DSC02594_fqe4ka.jpg')] bg-cover bg-center">
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
         <div className="relative z-10 w-full max-w-5xl mb-12">
           <div className="text-center mb-8">
@@ -332,8 +332,8 @@ export default function Home() {
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-[4/5] bg-gradient-to-br from-red-100 to-red-50 rounded-3xl overflow-hidden shadow-2xl">
-                <img src="https://d4n0y8dshd77z.cloudfront.net/listings/70166725/lg/img-1755502865-e4a99d3484df.jpg" alt="Arena Motors showroom" className="w-full h-full object-cover" />
+              <div className="aspect-[4/5] bg-gradient-to-br from-red-100 to-red-50 rounded-3xl overflow-hidden shadow-2xl flex bg-[url('https://res.cloudinary.com/dxo3z5off/image/upload/w_1000/q_auto/f_auto/v1759824792/DSC04098_ehlxcn.jpg')] bg-cover bg-left bg-no-repeat">
+                {/* <img src="https://res.cloudinary.com/dxo3z5off/image/upload/w_1000/q_auto/f_auto/v1759824792/DSC04098_ehlxcn.jpg" alt="Arena Motors showroom" className="w-full h-full object-cover" /> */}
               </div>
               {/* <div className="absolute -bottom-8 -left-8 bg-white p-8 rounded-2xl shadow-2xl border border-gray-100">
                 <div className="text-5xl font-extrabold text-gray-900 mb-1">15+</div>
@@ -345,16 +345,18 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="w-full px-4 py-20 bg-gradient-to-br from-gray-50 to-gray-100">
-        <div className="max-w-screen-xl mx-auto">
+      <section className="w-full px-4 py-20 bg-gradient-to-br overflow-hidden relative from-gray-50 to-gray-100 bg-[url('https://res.cloudinary.com/dxo3z5off/image/upload/w_1000/q_auto/f_auto/v1759824800/DSC02438_mywvji.jpg')] bg-cover bg-right">
+        <div className="w-full h-full absolute top-0 left-0 bg-gradient-to-tr from-gray-900/70 to-transparent z-[99]"></div>
+        <div className="max-w-screen-xl mx-auto relative z-[999]">
           <div className="text-center mb-16">
-            <span className="text-red-600 font-semibold text-sm uppercase tracking-wider">Naše usluge</span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 mt-2">Sve što vam treba na jednom mjestu</h2>
+            <span className="text-red-400 font-semibold text-sm uppercase tracking-wider">Naše usluge</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white mt-2">Sve što vam treba na jednom mjestu</h2>
             <div className="w-20 h-1 bg-gradient-to-r from-red-400 to-red-600 mx-auto"></div>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="group relative overflow-hidden rounded-3xl bg-white border border-gray-200 hover:shadow-2xl transition-all duration-500 p-10">
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-[999]">
+           
+            <div className="group relative overflow-hidden rounded-3xl bg-white/40 text-white backdrop-blur-lg border border-gray-200 hover:shadow-2xl transition-all duration-500 p-10">
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-red-400/10 to-transparent rounded-full -translate-y-20 translate-x-20"></div>
               <div className="relative">
                 <div className="w-20 h-20 bg-gradient-to-tr from-red-400 to-red-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg">
@@ -362,31 +364,31 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
                 </div>
-                <h3 className="text-3xl font-bold mb-4 text-gray-900">Kupovina vozila</h3>
-                <p className="text-gray-600 leading-relaxed text-lg mb-6">
+                <h3 className="text-3xl font-bold mb-4 text-white">Kupovina vozila</h3>
+                <p className="text-gray-200 leading-relaxed text-lg mb-6">
                   Tražite idealno vozilo? Naš širok izbor premium polovnih automobila nudi nešto za svakoga. Od kompaktnih gradskih automobila do luksuznih limuzina, svako vozilo je pažljivo odabrano i pregledano.
                 </p>
                 <ul className="space-y-3 mb-8">
-                  <li className="flex items-center gap-3 text-gray-700">
+                  <li className="flex items-center gap-3 text-gray-100">
                     <svg className="w-5 h-5 text-red-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <span>Sertifikovani stručnjaci za pomoć</span>
                   </li>
-                  <li className="flex items-center gap-3 text-gray-700">
+                  <li className="flex items-center gap-3 text-gray-100">
                     <svg className="w-5 h-5 text-red-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <span>Testna vožnja dostupna</span>
                   </li>
-                  <li className="flex items-center gap-3 text-gray-700">
+                  <li className="flex items-center gap-3 text-gray-100">
                     <svg className="w-5 h-5 text-red-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <span>Garancija na sva vozila</span>
                   </li>
                 </ul>
-                <a href="/all-vehicles" className="inline-flex items-center text-red-600 font-bold group-hover:gap-3 gap-2 transition-all text-lg">
+                <a href="/all-vehicles" className="inline-flex items-center bg-red-500 p-3 rounded font-bold group-hover:gap-3 gap-2 transition-all text-lg">
                   Pregledaj vozila
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -395,7 +397,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="group relative overflow-hidden rounded-3xl bg-white border border-gray-200 hover:shadow-2xl transition-all duration-500 p-10">
+            <div className="group relative overflow-hidden rounded-3xl bg-white/40 text-white backdrop-blur-lg border border-gray-200 hover:shadow-2xl transition-all duration-500 p-10">
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-red-400/10 to-transparent rounded-full -translate-y-20 translate-x-20"></div>
               <div className="relative">
                 <div className="w-20 h-20 bg-gradient-to-tr from-red-400 to-red-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg">
@@ -403,31 +405,31 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-3xl font-bold mb-4 text-gray-900">Prodaja vozila</h3>
-                <p className="text-gray-600 leading-relaxed text-lg mb-6">
+                <h3 className="text-3xl font-bold mb-4 text-white">Prodaja vozila</h3>
+                <p className="text-gray-200 leading-relaxed text-lg mb-6">
                   Želite prodati svoje vozilo brzo i po fer cijeni? Mi kupujemo sva vozila! Naš tim pruža besplatnu procjenu i transparentan proces. Bez skrivenih troškova, bez čekanja.
                 </p>
                 <ul className="space-y-3 mb-8">
-                  <li className="flex items-center gap-3 text-gray-700">
+                  <li className="flex items-center gap-3 text-gray-100">
                     <svg className="w-5 h-5 text-red-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <span>Besplatna procjena vozila</span>
                   </li>
-                  <li className="flex items-center gap-3 text-gray-700">
+                  <li className="flex items-center gap-3 text-gray-100">
                     <svg className="w-5 h-5 text-red-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <span>Plaćanje odmah u gotovini</span>
                   </li>
-                  <li className="flex items-center gap-3 text-gray-700">
+                  <li className="flex items-center gap-3 text-gray-100">
                     <svg className="w-5 h-5 text-red-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <span>Preuzimanje svih administrativnih poslova</span>
                   </li>
                 </ul>
-                <a href="/contact" className="inline-flex items-center text-red-600 font-bold group-hover:gap-3 gap-2 transition-all text-lg">
+                <a href="/contact" className="inline-flex items-center bg-red-500 p-3 rounded font-bold group-hover:gap-3 gap-2 transition-all text-lg">
                   Kontaktirajte nas
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />

@@ -84,7 +84,7 @@ function AllVehiclesContent() {
     return (
         <div className="w-screen h-screen overflow-auto">
             {/* Hero Section with Search */}
-            <section className="relative w-screen h-[60vh] flex items-center p-8 justify-center bg-[url('https://res.cloudinary.com/dxo3z5off/image/upload/f_auto,q_auto/v1/topc/qqrf1w1g7lpjzispybry')] bg-cover bg-center">
+            <section className="relative w-screen h-[60vh] flex items-center p-8 justify-center bg-[url('https://res.cloudinary.com/dxo3z5off/image/upload/f_auto,q_auto/v1/topc/qqrf1w1g7lpjzispybry')] bg-cover bg-bottom">
                 <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
                 <div className="relative z-10 w-full max-w-5xl mb-12">
                     <div className="text-center mb-8">

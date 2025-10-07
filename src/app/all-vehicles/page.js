@@ -92,7 +92,7 @@ function AllVehiclesContent() {
     return (
         <div className="w-screen h-screen overflow-auto">
             {/* Hero Section with Search */}
-            <section className="relative w-screen h-[60vh] flex items-end p-8 justify-center bg-[url('https://res.cloudinary.com/dxo3z5off/image/upload/f_auto,q_auto/v1/topc/qqrf1w1g7lpjzispybry')] bg-cover bg-center">
+            <section className="relative w-screen h-[70vh] flex items-end p-8 justify-center bg-[url('https://res.cloudinary.com/dxo3z5off/image/upload/w_1000/q_auto/f_auto/v1759824787/DSC04258_i5xdhq.jpg')] bg-cover bg-center">
                 <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
                 <div className="relative z-10 w-full max-w-5xl mb-12">
                     <div className="text-center mb-8">
@@ -314,7 +314,7 @@ function AllVehiclesContent() {
                             </div>
                             <div className="h-full min-h-[300px] lg:min-h-[400px] relative">
                                 <img
-                                    src="https://d4n0y8dshd77z.cloudfront.net/listings/70714043/lg/img-1757341847-fb7a7484ff48.jpg"
+                                    src="https://res.cloudinary.com/dxo3z5off/image/upload/w_1000/q_auto/f_auto/v1759824792/DSC04098_ehlxcn.jpg"
                                     alt="Contact us"
                                     className="w-full h-full object-cover"
                                 />

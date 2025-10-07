@@ -6,7 +6,7 @@ export default function About() {
         <div className="w-screen h-screen overflow-auto">
             {/* Hero Section */}
             <section className="relative w-screen h-[60vh] flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-900">
-                <div className="absolute inset-0 bg-[url('https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrJQ28tAsPR_PXbQWxd8ZeEPMaqJtYdacbYdAuR2nvSPLTiGPfQ-41KNI5p4aFdhOnqjmDoNgP2TD3aVtU5z1k28WV3gAi5h0VstMQA-izm2Xrhi-OpY-AgmWfhz_jS00CBu20=s1360-w1360-h1020-rw')] bg-cover bg-center opacity-20"></div>
+                <div className="absolute inset-0 bg-[url('https://res.cloudinary.com/dxo3z5off/image/upload/w_1000/q_auto/f_auto/v1759825449/DJI_0230_tqytfc.webp')] bg-cover bg-center opacity-20"></div>
                 <div className="relative z-10 text-center px-8">
                     <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 drop-shadow-2xl">
                         O nama

@@ -41,7 +41,7 @@ export default function Contact() {
         <div className="w-screen h-screen overflow-auto">
             {/* Hero Section */}
             <section className="relative w-screen h-[60vh] flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-900">
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1200')] bg-cover bg-center opacity-20"></div>
+                <div className="absolute inset-0 bg-[url('https://res.cloudinary.com/dxo3z5off/image/upload/w_1000/q_auto/f_auto/v1759825449/DJI_0222_dlsgg8.webp')] bg-cover bg-center opacity-20"></div>
                 <div className="relative z-10 text-center px-8">
                     <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 drop-shadow-2xl">
                         Kontaktirajte nas
