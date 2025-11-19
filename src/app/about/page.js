@@ -41,7 +41,7 @@ export default function About() {
                         <div className="relative">
                             <div className="aspect-square bg-gradient-to-br from-red-100 to-red-50 rounded-3xl overflow-hidden shadow-2xl">
                                 <img
-                                    src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrJQ28tAsPR_PXbQWxd8ZeEPMaqJtYdacbYdAuR2nvSPLTiGPfQ-41KNI5p4aFdhOnqjmDoNgP2TD3aVtU5z1k28WV3gAi5h0VstMQA-izm2Xrhi-OpY-AgmWfhz_jS00CBu20=s1360-w1360-h1020-rw"
+                                    src="/arenainterior.webp"
                                     alt="Arena Motors showroom"
                                     className="w-full h-full object-cover"
                                 />

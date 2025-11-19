@@ -120,7 +120,7 @@ export default function Contact() {
                                     </div>
                                     <div>
                                         <h3 className="font-bold text-gray-900 text-lg mb-1">Radno vrijeme</h3>
-                                        <p className="text-gray-600">Pon - Sub: 09:00 - 18:00</p>
+                                        <p className="text-gray-600">Pon - Sub: 09:00 - 17:00</p>
                                         <p className="text-gray-600">Nedjelja: Zatvoreno</p>
                                     </div>
                                 </div>

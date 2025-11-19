@@ -78,7 +78,7 @@ export default function FooterArena() {
                 <div className="border-t border-white/10 pt-8">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                         <p className="text-gray-400 text-sm text-center md:text-left">
-                            © 2025 Arena Motors. Sva prava zadržana.
+                            © 2025 Arena Motors. Sva prava zadržana. | Developed by <a href="tel:+38766415295">David Obradović</a>
                         </p>
                         <div className="flex gap-6 text-sm">
                             <a href="/privacy" className="text-gray-400 hover:text-red-400 transition-colors">Politika privatnosti</a>
