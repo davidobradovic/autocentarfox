@@ -16,6 +16,20 @@ function AllVehiclesContent() {
     const [searchTerm, setSearchTerm] = useState('');
     const [query, setQuery] = useState('');
     const [isInitialized, setIsInitialized] = useState(false);
+    const [snowflakes, setSnowflakes] = useState([]);
+
+    useEffect(() => {
+        const flakes = Array.from({ length: 50 }, (_, i) => ({
+            id: i,
+            left: Math.random() * 100,
+            animationDuration: 10 + Math.random() * 20,
+            animationDelay: Math.random() * 10,
+            size: 2 + Math.random() * 4,
+        }));
+        setSnowflakes(flakes);
+
+    }, []);
+
 
     const fetchVehicles = async (page = 1, q = '') => {
         try {
@@ -91,6 +105,16 @@ function AllVehiclesContent() {
 
     return (
         <div className="w-screen h-screen overflow-auto">
+            <div className="w-full bg-black text-white py-3 px-4 text-center font-bold relative overflow-hidden">
+                <div className="absolute inset-0 bg-red-500 opacity-50"></div>
+
+                <div className="relative z-10 flex items-center justify-center gap-3">
+                    <span className="text-yellow-400 text-xl">🎄</span>
+                    <span className="text-xs md:text-base">BLACK FRIDAY AKCIJA 22-29 NOVEMBAR 2025: Popust od 1.500 do 15.000 KM na pažljivo odabrane modele vozila.</span>
+                    <span className="text-yellow-400 text-xl">🎅</span>
+                </div>
+            </div>
+
             {/* Hero Section with Search */}
             <section className="relative w-screen h-[70vh] flex items-end p-8 justify-center bg-[url('https://res.cloudinary.com/dxo3z5off/image/upload/w_1000/q_auto/f_auto/v1759824787/DSC04258_i5xdhq.jpg')] bg-cover bg-center">
                 <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
@@ -135,6 +159,24 @@ function AllVehiclesContent() {
                     </div>
                 </div>
             </section>
+
+            <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden">
+                {snowflakes.map((flake) => (
+                    <div
+                        key={flake.id}
+                        className="absolute top-0 text-white opacity-70 animate-fall"
+                        style={{
+                            left: `${flake.left}%`,
+                            animationDuration: `${flake.animationDuration}s`,
+                            animationDelay: `${flake.animationDelay}s`,
+                            fontSize: `20px`,
+                        }}
+                    >
+                        ❄
+                    </div>
+                ))}
+            </div>
+            
 
             {/* Vehicles Section */}
             <section className="w-full px-4 py-20 bg-gradient-to-br from-gray-50 to-gray-100">

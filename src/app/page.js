@@ -167,6 +167,7 @@ export default function Home() {
   const router = useRouter();
   const [vehicles, setVehicles] = useState([])
   const [searchInput, setSearchInput] = useState('');
+  const [snowflakes, setSnowflakes] = useState([]);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -188,59 +189,136 @@ export default function Home() {
     fetchVehicles()
   }, [])
 
+  useEffect(() => {
+    const flakes = Array.from({ length: 50 }, (_, i) => ({
+      id: i,
+      left: Math.random() * 100,
+      animationDuration: 10 + Math.random() * 20,
+      animationDelay: Math.random() * 10,
+      size: 2 + Math.random() * 4,
+    }));
+    setSnowflakes(flakes);
+
+  }, []);
+
   return (
-    <div className="w-screen h-screen overflow-auto">
+    <div className="w-screen h-screen overflow-auto relative">
+      {/* Snowfall Effect */}
+      <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden">
+        {snowflakes.map((flake) => (
+          <div
+            key={flake.id}
+            className="absolute top-0 text-white opacity-70 animate-fall"
+            style={{
+              left: `${flake.left}%`,
+              animationDuration: `${flake.animationDuration}s`,
+              animationDelay: `${flake.animationDelay}s`,
+              fontSize: `20px`,
+            }}
+          >
+            ❄
+          </div>
+        ))}
+      </div>
+
+      <style jsx>{`
+        @keyframes fall {
+          0% {
+            transform: translateY(-10vh) rotate(0deg);
+          }
+          100% {
+            transform: translateY(110vh) rotate(360deg);
+          }
+        }
+        .animate-fall {
+          animation: fall linear infinite;
+        }
+      `}</style>
+
+      {/* Black Friday Banner */}
+      <div className="w-full bg-black text-white py-3 px-4 text-center font-bold relative overflow-hidden">
+        <div className="absolute inset-0 bg-red-500 opacity-50"></div>
+
+        <div className="relative z-10 flex items-center justify-center gap-3">
+          <span className="text-yellow-400 text-xl">🎄</span>
+          <span className="text-xs md:text-base">BLACK FRIDAY AKCIJA 22-29 NOVEMBAR 2025: Popust od 1.500 do 15.000 KM na pažljivo odabrane modele vozila.</span>
+          <span className="text-yellow-400 text-xl">🎅</span>
+        </div>
+      </div>
+
       {/* Hero Section with Search */}
       <section className="relative w-screen h-[90vh] flex items-end p-4 justify-center bg-[url('https://res.cloudinary.com/dxo3z5off/image/upload/w_1000/q_auto/f_auto/v1759824802/DSC02594_fqe4ka.jpg')] bg-cover bg-center">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-green-900/70 via-red-900/50 to-black/90"></div>
+
+        {/* Christmas Decorations */}
+        {/* <div className="absolute top-8 left-8 text-6xl animate-bounce">🎄</div>
+        <div className="absolute top-12 right-12 text-6xl animate-bounce" style={{ animationDelay: '0.5s' }}>🎅</div>
+        <div className="absolute top-32 left-1/4 text-4xl animate-pulse">⭐</div>
+        <div className="absolute top-40 right-1/4 text-4xl animate-pulse" style={{ animationDelay: '0.3s' }}>🎁</div> */}
+
         <div className="relative z-10 w-full max-w-5xl mb-12">
           <div className="text-center mb-8">
+            <div className="inline-block mb-4 px-6 py-2 bg-red-600 text-white rounded-full font-bold text-sm animate-pulse">
+              BLACK FRIDAY 22-29 NOV
+            </div>
             <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-4 drop-shadow-2xl">
-              Vaša vizija. Naše vozilo.
+              Arena Motors
             </h1>
-            <p className="text-xl md:text-2xl text-gray-200 font-light">Premium prodaja vozila u srcu Sarajeva</p>
+            <p className="text-lg md:text-xl text-yellow-300 font-semibold mt-2">🎁 Popust od 1.500 do 15.000 KM 🎁</p>
           </div>
-          <div className="quick-search p-8 rounded-2xl bg-white/10 text-white backdrop-blur-xl border border-white/20 shadow-2xl">
-            <h2 className="text-2xl mb-5 font-semibold">Brza Pretraga</h2>
+
+          <div className="quick-search p-8 rounded-2xl bg-gradient-to-br from-red-900/40 to-green-900/40 text-white backdrop-blur-xl border-2 border-yellow-400/50 shadow-2xl">
+            <h2 className="text-2xl mb-5 font-semibold flex items-center gap-2">
+              <span>🔍</span> Brza Pretraga <span className="text-sm bg-red-600 px-3 py-1 rounded-full ml-2">BLACK FRIDAY</span>
+            </h2>
             <form className="flex flex-col sm:flex-row gap-4" onSubmit={handleSearch}>
               <input
                 type="text"
                 placeholder="Unesite pojam za pretragu (marka, model, godina...)"
-                className="bg-white/10 text-white placeholder:text-gray-300 outline-none rounded-xl px-5 py-4 flex-1 border border-white/20 focus:border-red-400 transition"
+                className="bg-white/20 text-white placeholder:text-gray-200 outline-none rounded-xl px-5 py-4 flex-1 border-2 border-yellow-400/30 focus:border-yellow-400 transition"
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
               />
-              <button type="submit" className="bg-gradient-to-tr from-red-500 to-red-600 text-white rounded-xl px-8 py-4 hover:shadow-2xl hover:scale-105 transition-all font-bold">
-                Pretraži
+              <button type="submit" className=" bg-red-500 text-white rounded-xl px-8 py-4 hover:shadow-2xl hover:scale-105 transition-all font-bold">
+                🎅 Pretraži
               </button>
             </form>
-            <p className="text-sm italic mt-3 opacity-70">Pronađite vozilo koje savršeno odgovara vašim potrebama</p>
+            <p className="text-sm italic mt-3 opacity-90">Pronađite vozilo koje savršeno odgovara vašim potrebama</p>
           </div>
         </div>
       </section>
 
       {/* Vehicles Section */}
-      <section className="w-full px-4 py-20 bg-white">
+      <section className="w-full px-4 py-20 bg-gradient-to-b from-white to-red-50">
         <div className="max-w-screen-xl mx-auto">
           <div className="text-center mb-16">
-            <span className="text-red-600 font-semibold text-sm uppercase tracking-wider">Aktuelna ponuda</span>
+            <span className="text-red-600 font-semibold text-sm uppercase tracking-wider">🎄 BLACK FRIDAY PONUDA 🎄</span>
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 mt-2">Istaknuta vozila</h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-red-400 to-red-600 mx-auto mb-4"></div>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">Pogledajte našu pažljivo odabranu kolekciju premium vozila</p>
+            <div className="w-20 h-1 bg-gradient-to-r from-red-400 via-green-500 to-red-600 mx-auto mb-4"></div>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">Pogledajte našu pažljivo odabranu kolekciju premium vozila sa specijalnim popustima!</p>
+            <div className="mt-4 inline-block bg-black text-yellow-400 px-6 py-3 rounded-full font-bold text-lg animate-pulse">
+              ⚡ Popusti od 1.500 do 15.000 KM ⚡
+            </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {vehicles?.data?.length > 0 ? vehicles.data.slice(0, 4).map(vehicle => (
-              <a href={`/vehicles/${vehicle.id}`} className="aspect-video bg-gray-200 rounded-2xl relative overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+              <a key={vehicle.id} href={`/vehicles/${vehicle.id}`} className="aspect-video bg-gray-200 rounded-2xl relative overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group">
                 <img src={vehicle.image.replace('/sm/', '/lg/')} alt={vehicle.title} className="object-cover w-full h-full absolute top-0 left-0 group-hover:scale-110 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70 group-hover:from-black/50 group-hover:to-black/80 transition-all duration-500"></div>
+
+                {/* Black Friday Badge */}
+                {/* <div className="absolute bottom-4 left-4 bg-red-600 text-white px-4 py-2 rounded-full font-bold text-sm animate-pulse z-10">
+                  🔥 BLACK FRIDAY
+                </div> */}
+
                 <div className="p-6 relative z-10 w-full h-full flex flex-col justify-between">
                   <h1 className="text-xl sm:text-2xl text-white font-bold drop-shadow-lg">{vehicle.title}</h1>
                   <div className="w-full flex flex-col items-end gap-1">
-                    <div className="price-container bg-black/60 backdrop-blur-sm px-4 py-2 rounded-xl border border-white/20">
+                    <div className="price-container bg-black/50 backdrop-blur-sm px-4 py-2 rounded-xl border-2 border-gray-300">
                       <span className="text-xl sm:text-2xl font-extrabold text-white">{vehicle.display_price}</span>
                     </div>
-                    <div className="bg-black/40 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/20">
-                      <span className="text-sm text-white ">{vehicle.state === 'used' ? 'Polovno' : 'Novo'}</span>
+                    <div className="bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-yellow-400/50">
+                      <span className="text-sm text-white">{vehicle.state === 'used' ? 'Polovno' : 'Novo'}</span>
                     </div>
                   </div>
                 </div>
@@ -250,45 +328,43 @@ export default function Home() {
             )}
           </div>
           <div className="text-center">
-            <a className="inline-block py-5 px-10 bg-gradient-to-tr from-red-500 to-red-600 rounded-2xl text-white font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300 text-lg" href="/all-vehicles">
-              Pogledaj sva vozila
+            <a className="inline-block py-5 px-10 bg-red-500 rounded-2xl text-white font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300 text-lg" href="/all-vehicles">
+              🎄 Pogledaj sva vozila 🎅
             </a>
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="w-full px-4 py-16 bg-gradient-to-r from-gray-800 to-gray-900">
+      <section className="w-full px-4 py-16 bg-red-500">
         <div className="max-w-screen-xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
-
             <div className="text-center">
-              <div className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent mb-2">1000+</div>
-              <p className="text-gray-400 text-sm md:text-base">Zadovoljnih kupaca</p>
+              <div className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent mb-2">1000+</div>
+              <p className="text-gray-200 text-sm md:text-base">Zadovoljnih kupaca</p>
             </div>
             <div className="text-center">
-              <div className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent mb-2">500+</div>
-              <p className="text-gray-400 text-sm md:text-base">Vozila godišnje</p>
+              <div className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent mb-2">500+</div>
+              <p className="text-gray-200 text-sm md:text-base">Vozila godišnje</p>
             </div>
-            <div className="text-center">
-              <div className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent mb-2">100%</div>
-              <p className="text-gray-400 text-sm md:text-base">Transparentnost</p>
+            <div className="text-center col-span-2 md:col-span-1">
+              <div className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent mb-2">100%</div>
+              <p className="text-gray-200 text-sm md:text-base">Transparentnost</p>
             </div>
-
           </div>
         </div>
       </section>
 
       {/* About Arena Motors */}
-      <section className="w-full px-4 py-20 bg-white">
+      <section className="w-full px-4 py-20 bg-gradient-to-b from-white to-green-50">
         <div className="max-w-screen-xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="text-red-600 font-semibold text-sm uppercase tracking-wider">O nama</span>
+              <span className="text-red-600 font-semibold text-sm uppercase tracking-wider">🎄 O nama 🎅</span>
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 mt-2">
                 Dobrodošli u Arena Motors
               </h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-red-400 to-red-600 mb-6"></div>
+              <div className="w-20 h-1 bg-gradient-to-r from-red-400 via-green-500 to-red-600 mb-6"></div>
               <p className="text-gray-700 text-lg leading-relaxed mb-6">
                 Arena Motors je više od prodajnog mjesta automobila - mi smo vaš partner u pronalaženju savršenog vozila.
               </p>
@@ -297,8 +373,8 @@ export default function Home() {
               </p>
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
@@ -308,8 +384,8 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
@@ -319,8 +395,8 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                   </div>
@@ -332,13 +408,8 @@ export default function Home() {
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-[4/5] bg-gradient-to-br from-red-100 to-red-50 rounded-3xl overflow-hidden shadow-2xl flex bg-[url('https://res.cloudinary.com/dxo3z5off/image/upload/w_1000/q_auto/f_auto/v1759824792/DSC04098_ehlxcn.jpg')] bg-cover bg-left bg-no-repeat">
-                {/* <img src="https://res.cloudinary.com/dxo3z5off/image/upload/w_1000/q_auto/f_auto/v1759824792/DSC04098_ehlxcn.jpg" alt="Arena Motors showroom" className="w-full h-full object-cover" /> */}
+              <div className="aspect-[4/5] bg-gradient-to-br from-red-100 via-green-100 to-red-50 rounded-3xl overflow-hidden shadow-2xl flex bg-[url('https://res.cloudinary.com/dxo3z5off/image/upload/w_1000/q_auto/f_auto/v1759824792/DSC04098_ehlxcn.jpg')] bg-cover bg-left bg-no-repeat border-4 border-yellow-400">
               </div>
-              {/* <div className="absolute -bottom-8 -left-8 bg-white p-8 rounded-2xl shadow-2xl border border-gray-100">
-                <div className="text-5xl font-extrabold text-gray-900 mb-1">15+</div>
-                <p className="text-gray-600 font-medium">Godina tradicije</p>
-              </div> */}
             </div>
           </div>
         </div>
@@ -415,12 +486,6 @@ export default function Home() {
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <span>Besplatna procjena vozila</span>
-                  </li>
-                  <li className="flex items-center gap-3 text-gray-100">
-                    <svg className="w-5 h-5 text-red-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <span>Plaćanje odmah u gotovini</span>
                   </li>
                   <li className="flex items-center gap-3 text-gray-100">
                     <svg className="w-5 h-5 text-red-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">

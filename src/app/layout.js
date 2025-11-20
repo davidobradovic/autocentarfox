@@ -36,12 +36,38 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
+
+  const snowflakes = Array.from({ length: 100 }, (_, i) => ({
+    id: i,
+    left: Math.random() * 100,             // % od širine kartice
+    animationDuration: 10 + Math.random() * 20,  // sekunde
+    animationDelay: Math.random() * 10,    // sekunde
+    size: 2 + Math.random() * 4,           // px
+  }));
+
   return (
     <html lang="en">
       <body
         className={`${poppins.variable} antialiased`}
       >
         <Header />
+        <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden">
+          {snowflakes.map((flake) => (
+            <div
+              key={flake.id}
+              className="absolute top-0 text-white opacity-70 animate-fall"
+              style={{
+                left: `${flake.left}%`,
+                animationDuration: `${flake.animationDuration}s`,
+                animationDelay: `${flake.animationDelay}s`,
+                fontSize: `20px`,
+              }}
+            >
+              ❄
+            </div>
+          ))}
+        </div>
         {children}
       </body>
     </html>
