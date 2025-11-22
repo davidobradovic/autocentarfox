@@ -110,7 +110,7 @@ function AllVehiclesContent() {
 
                 <div className="relative z-10 flex items-center justify-center gap-3">
                     <span className="text-yellow-400 text-xl">🎄</span>
-                    <span className="text-xs md:text-base">BLACK FRIDAY AKCIJA 22-29 NOVEMBAR 2025: Popust od 1.500 do 15.000 KM na pažljivo odabrane modele vozila.</span>
+                    <span className="text-xs md:text-base">BLACK FRIDAY AKCIJA 22-29 NOVEMBAR 2025: Popust od 1.500 do 15.000 KM na pažljivo odabrane modele vozila + prvi redovni servis gratis.</span>
                     <span className="text-yellow-400 text-xl">🎅</span>
                 </div>
             </div>

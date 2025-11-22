@@ -88,7 +88,7 @@ function AllVehiclesContent() {
 
                 <div className="relative z-10 flex items-center justify-center gap-3">
                     <span className="text-yellow-400 text-xl">🎄</span>
-                    <span className="text-xs md:text-base">BLACK FRIDAY AKCIJA 22-29 NOVEMBAR 2025: Popust od 1.500 do 15.000 KM na pažljivo odabrane modele vozila.</span>
+                    <span className="text-xs md:text-base">BLACK FRIDAY AKCIJA 22-29 NOVEMBAR 2025: Popust od 1.500 do 15.000 KM na pažljivo odabrane modele vozila + prvi redovni servis gratis.</span>
                     <span className="text-yellow-400 text-xl">🎅</span>
                 </div>
             </div>
@@ -99,7 +99,7 @@ function AllVehiclesContent() {
                 <div className="relative z-10 w-full max-w-5xl mb-12">
                     <div className="text-center mb-8">
                         <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-4 drop-shadow-2xl">
-                            Prodata vozika
+                            Prodata vozila
                         </h1>
                         <p className="text-lg md:text-xl text-gray-200 font-light">
                             {vehicles?.meta?.total ? `Pronađeno ${vehicles.meta.total} prodatih vozila` : 'Pregledajte našu listu prodatih vozila'}
