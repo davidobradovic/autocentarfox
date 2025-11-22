@@ -265,6 +265,7 @@ export default function Home() {
               Arena Motors
             </h1>
             <p className="text-lg md:text-xl text-yellow-300 font-semibold mt-2">🎁 Popust od 1.500 do 15.000 KM 🎁</p>
+            <p className="text-lg md:text-xl text-yellow-300 font-semibold uppercase">🎁 Prvi Redovni Servis Gratis 🎁</p>
           </div>
 
           <div className="quick-search p-8 rounded-2xl bg-gradient-to-br from-red-900/40 to-green-900/40 text-white backdrop-blur-xl border-2 border-yellow-400/50 shadow-2xl">
