@@ -236,15 +236,7 @@ export default function Home() {
       `}</style>
 
       {/* Black Friday Banner */}
-      <div className="w-full bg-black text-white py-3 px-4 text-center font-bold relative overflow-hidden">
-        <div className="absolute inset-0 bg-red-500 opacity-50"></div>
 
-        <div className="relative z-10 flex items-center justify-center gap-3">
-          <span className="text-yellow-400 text-xl">🎄</span>
-          <span className="text-xs md:text-base">BLACK FRIDAY AKCIJA 22-29 NOVEMBAR 2025: Popust od 1.500 do 15.000 KM na pažljivo odabrane modele vozila + prvi redovni servis gratis.</span>
-          <span className="text-yellow-400 text-xl">🎅</span>
-        </div>
-      </div>
 
       {/* Hero Section with Search */}
       <section className="relative w-screen h-[90vh] flex items-end p-4 justify-center bg-[url('https://res.cloudinary.com/dxo3z5off/image/upload/w_1000/q_auto/f_auto/v1759824802/DSC02594_fqe4ka.jpg')] bg-cover bg-center">
@@ -258,20 +250,15 @@ export default function Home() {
 
         <div className="relative z-10 w-full max-w-5xl mb-12">
           <div className="text-center mb-8">
-            <div className="inline-block mb-4 px-6 py-2 bg-red-600 text-white rounded-full font-bold text-sm animate-pulse">
-              BLACK FRIDAY 22-29 NOV
-            </div>
+            
             <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-4 drop-shadow-2xl">
               Arena Motors
             </h1>
-            <p className="text-lg md:text-xl text-yellow-300 font-semibold mt-2">🎁 Popust od 1.500 do 15.000 KM 🎁</p>
-            <p className="text-lg md:text-xl text-yellow-300 font-semibold uppercase">🎁 Prvi Redovni Servis Gratis 🎁</p>
+            
           </div>
 
           <div className="quick-search p-8 rounded-2xl bg-gradient-to-br from-red-900/40 to-green-900/40 text-white backdrop-blur-xl border-2 border-yellow-400/50 shadow-2xl">
-            <h2 className="text-2xl mb-5 font-semibold flex items-center gap-2">
-              <span>🔍</span> Brza Pretraga <span className="text-sm bg-red-600 px-3 py-1 rounded-full ml-2">BLACK FRIDAY</span>
-            </h2>
+            
             <form className="flex flex-col sm:flex-row gap-4" onSubmit={handleSearch}>
               <input
                 type="text"
@@ -293,13 +280,10 @@ export default function Home() {
       <section className="w-full px-4 py-20 bg-gradient-to-b from-white to-red-50">
         <div className="max-w-screen-xl mx-auto">
           <div className="text-center mb-16">
-            <span className="text-red-600 font-semibold text-sm uppercase tracking-wider">🎄 BLACK FRIDAY PONUDA 🎄</span>
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 mt-2">Istaknuta vozila</h2>
             <div className="w-20 h-1 bg-gradient-to-r from-red-400 via-green-500 to-red-600 mx-auto mb-4"></div>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">Pogledajte našu pažljivo odabranu kolekciju premium vozila sa specijalnim popustima!</p>
-            <div className="mt-4 inline-block bg-black text-yellow-400 px-6 py-3 rounded-full font-bold text-lg animate-pulse">
-              ⚡ Popusti od 1.500 do 15.000 KM ⚡
-            </div>
+            
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {vehicles?.data?.length > 0 ? vehicles.data.slice(0, 4).map(vehicle => (

@@ -105,15 +105,7 @@ function AllVehiclesContent() {
 
     return (
         <div className="w-screen h-screen overflow-auto">
-            <div className="w-full bg-black text-white py-3 px-4 text-center font-bold relative overflow-hidden">
-                <div className="absolute inset-0 bg-red-500 opacity-50"></div>
-
-                <div className="relative z-10 flex items-center justify-center gap-3">
-                    <span className="text-yellow-400 text-xl">🎄</span>
-                    <span className="text-xs md:text-base">BLACK FRIDAY AKCIJA 22-29 NOVEMBAR 2025: Popust od 1.500 do 15.000 KM na pažljivo odabrane modele vozila + prvi redovni servis gratis.</span>
-                    <span className="text-yellow-400 text-xl">🎅</span>
-                </div>
-            </div>
+            
 
             {/* Hero Section with Search */}
             <section className="relative w-screen h-[70vh] flex items-end p-8 justify-center bg-[url('https://res.cloudinary.com/dxo3z5off/image/upload/w_1000/q_auto/f_auto/v1759824787/DSC04258_i5xdhq.jpg')] bg-cover bg-center">
