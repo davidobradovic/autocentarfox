@@ -282,7 +282,7 @@ export default function Home() {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 mt-2">Istaknuta vozila</h2>
             <div className="w-20 h-1 bg-gradient-to-r from-red-400 via-green-500 to-red-600 mx-auto mb-4"></div>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">Pogledajte našu pažljivo odabranu kolekciju premium vozila sa specijalnim popustima!</p>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">Pogledajte našu pažljivo odabranu kolekciju premium vozila!</p>
             
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
