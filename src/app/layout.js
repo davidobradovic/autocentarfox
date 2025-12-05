@@ -231,39 +231,39 @@ export default function RootLayout({ children }) {
               "name": "Arena Motors",
               "description": "Prodaja novih i polovnih automobila u Sarajevu",
               "url": "https://arenamotors.ba",
-              "telephone": "+387-XX-XXX-XXX", // Dodajte pravi broj
+              "telephone": "+38766444644", // Dodajte pravi broj
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "Vaša adresa", // Dodajte pravu adresu
-                "addressLocality": "Sarajevo",
-                "addressRegion": "Kanton Sarajevo",
-                "postalCode": "71000",
+                "streetAddress": "Ive Andrića 6, I. Sarajevo", // Dodajte pravu adresu
+                "addressLocality": "I.Sarajevo",
+                "addressRegion": "I.Sarajevo",
+                "postalCode": "71123",
                 "addressCountry": "BA"
               },
               "geo": {
                 "@type": "GeoCoordinates",
-                "latitude": "43.8563", // Dodajte prave koordinate
-                "longitude": "18.4131"
+                "latitude": "43.8279425", // Dodajte prave koordinate
+                "longitude": "18.3620791"
               },
               "openingHoursSpecification": [
                 {
                   "@type": "OpeningHoursSpecification",
                   "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
                   "opens": "09:00",
-                  "closes": "18:00"
+                  "closes": "17:00"
                 },
                 {
                   "@type": "OpeningHoursSpecification",
                   "dayOfWeek": "Saturday",
                   "opens": "09:00",
-                  "closes": "14:00"
+                  "closes": "17:00"
                 }
               ],
               "priceRange": "$$",
               "image": "/logo.png",
               "sameAs": [
-                "https://www.facebook.com/arenamotors", // Dodajte prave linkove
-                "https://www.instagram.com/arenamotors"
+                "https://www.facebook.com/arenasarajevo/", // Dodajte prave linkove
+                "https://www.instagram.com/arena_motors_sarajevo/?hl=en"
               ]
             })
           }}
