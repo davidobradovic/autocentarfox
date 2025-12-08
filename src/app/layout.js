@@ -27,7 +27,7 @@
 //   description: 'Arena Motors nudi finansiranje, servis automobila i veliki izbor vozila za kupce luksuznih automobila u Sarajevu, BiH. Arena Motors je vrhunski prodavac automobila.',
 //   keywords: [
 //     'Arena Motors', 'Automobili', 'vozila', 'bih',
-//     'prodaja vozila', 'luksuzni automobili', 'sarajevo', 'auto plac', 'prodavac automobila'
+//     'prodaja vozila', 'luksuzni automobili', 'sarajevo', 'auto salon', 'prodavac automobila'
 //   ],
 //   icons: {
 //     icon: 'https://i.ibb.co/L6LH4BZ/apploog.png',
@@ -103,12 +103,12 @@ export const metadata = {
   title: 'Arena Motors Sarajevo | Prodaja Automobila i Polovnih Vozila BiH',
 
   // Meta description - 150-160 karaktera, prirodan tekst sa ključnim riječima
-  description: 'Arena Motors - vodeći auto plac u Sarajevu. Prodaja novih i polovnih automobila, luksuzna vozila, finansiranje, auto servis. Najbolji izbor automobila u Bosni i Hercegovini.',
+  description: 'Arena Motors - vodeći auto salon u Sarajevu. Prodaja novih i polovnih automobila, luksuzna vozila, finansiranje, auto servis. Najbolji izbor automobila u Bosni i Hercegovini.',
 
   // Bosnijske ključne riječi - najvažnije za lokalno SEO
   keywords: [
     // Primarne ključne riječi
-    'auto plac Sarajevo',
+    'auto salon Sarajevo',
     'prodaja automobila Sarajevo',
     'polovni automobili Sarajevo',
     'Arena Motors',
@@ -123,9 +123,9 @@ export const metadata = {
 
     // Long-tail ključne riječi
     'prodaja polovnih vozila Sarajevo',
-    'auto plac Bosna i Hercegovina',
+    'auto salon Bosna i Hercegovina',
     'gdje kupiti auto u Sarajevu',
-    'najbolji auto plac Sarajevo',
+    'najbolji auto salon Sarajevo',
     'provjerena polovna vozila',
 
     // Brendovi i modeli (prilagodite vašem inventaru)
@@ -141,14 +141,14 @@ export const metadata = {
     locale: 'bs_BA',
     url: 'https://arenamotors.ba',
     siteName: 'Arena Motors',
-    title: 'Arena Motors Sarajevo - Prodaja Automobila | Auto Plac BiH',
-    description: 'Vodeći auto plac u Sarajevu. Prodaja novih i polovnih automobila, luksuzna vozila, finansiranje i servis. Posjetite nas danas!',
+    title: 'Arena Motors Sarajevo - Prodaja Automobila | Auto Salon',
+    description: 'Vodeći auto salon u Sarajevu. Prodaja novih i polovnih automobila, luksuzna vozila, finansiranje i servis. Posjetite nas danas!',
     images: [
       {
         url: '/og_image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Arena Motors - Auto Plac Sarajevo',
+        alt: 'Arena Motors - Auto Salon Sarajevo',
       },
     ],
   },
@@ -157,7 +157,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Arena Motors Sarajevo - Prodaja Automobila',
-    description: 'Vodeći auto plac u Sarajevu. Najbolji izbor vozila u BiH.',
+    description: 'Vodeći auto salon u Sarajevu. Najbolji izbor vozila u BiH.',
     images: ['/og_image.jpg'],
   },
 
