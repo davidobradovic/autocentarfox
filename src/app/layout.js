@@ -229,7 +229,7 @@ export default function RootLayout({ children }) {
               "@context": "https://schema.org",
               "@type": "AutoDealer",
               "name": "Arena Motors",
-              "description": "Prodaja novih i polovnih automobila u Sarajevu",
+              "description": "Prodaja polovnih automobila u Sarajevu",
               "url": "https://arenamotors.ba",
               "telephone": "+38766444644", // Dodajte pravi broj
               "address": {
