@@ -119,21 +119,38 @@ export default function VehiclePage() {
     vehicle?.additional?.video ||
     getAttribute("video", "video url", "youtube", "youtube link")?.value ||
     "";
-  const hasVideo = Boolean(rawVideoUrl);
+  const normalizedRawVideoUrl = typeof rawVideoUrl === "string" ? rawVideoUrl.trim() : "";
 
   const getVideoEmbedUrl = (url) => {
-    if (!url) return "";
-    if (url.includes("youtube.com/watch?v=")) {
-      const id = new URL(url).searchParams.get("v");
-      return id ? `https://www.youtube.com/embed/${id}` : url;
+    if (!url || typeof url !== "string") return "";
+    const safeUrl = url.trim();
+    if (!safeUrl) return "";
+
+    const withProtocol =
+      safeUrl.startsWith("http://") ||
+      safeUrl.startsWith("https://") ||
+      safeUrl.startsWith("//")
+        ? safeUrl
+        : `https://${safeUrl}`;
+
+    try {
+      if (withProtocol.includes("youtube.com/watch")) {
+        const id = new URL(withProtocol).searchParams.get("v");
+        return id ? `https://www.youtube.com/embed/${id}` : withProtocol;
+      }
+    } catch {
+      return "";
     }
-    if (url.includes("youtu.be/")) {
-      const id = url.split("youtu.be/")[1]?.split("?")[0];
-      return id ? `https://www.youtube.com/embed/${id}` : url;
+
+    if (withProtocol.includes("youtu.be/")) {
+      const id = withProtocol.split("youtu.be/")[1]?.split("?")[0];
+      return id ? `https://www.youtube.com/embed/${id}` : withProtocol;
     }
-    return url;
+
+    return withProtocol;
   };
-  const videoEmbedUrl = getVideoEmbedUrl(rawVideoUrl);
+  const videoEmbedUrl = getVideoEmbedUrl(normalizedRawVideoUrl);
+  const hasVideo = Boolean(videoEmbedUrl);
   const isDirectVideo = /\.(mp4|webm|ogg)$/i.test(videoEmbedUrl);
 
   const goToPrevImage = () => {
