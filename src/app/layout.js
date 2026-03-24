@@ -73,32 +73,22 @@
 //     </html>
 //   );
 // }
-import { Geist, Geist_Mono } from "next/font/google";
-import { Poppins } from "next/font/google";
+import { Sora } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const poppins = Poppins({
+const poppins = Sora({
   variable: "--font-poppins",
   subsets: ["latin"],
   weight: [
-    "100", "200", "300", "400", "500", "600", "700", "800", "900"
+    "100", "200", "300", "400", "500", "600", "700", "800"
   ],
-  style: ["normal", "italic"],
+  style: ["normal"],
   display: "swap", // Optimizacija za performance
 });
 
 export const metadata = {
+  metadataBase: new URL("https://arenamotors.ba"),
   // Glavni naslov - uključuje lokaciju i ključne riječi
   title: 'Arena Motors Sarajevo | Prodaja Automobila i Polovnih Vozila BiH',
 
@@ -163,9 +153,9 @@ export const metadata = {
 
   // Favicon i Apple ikone
   icons: {
-    icon: "/logo.png",
-    shortcut: "/logo.png",
-    apple: "/logo.png",
+    icon: [{ url: "/logo.png?v=3", type: "image/png" }],
+    shortcut: ["/logo.png?v=3"],
+    apple: [{ url: "/logo.png?v=3", type: "image/png" }],
   },
 
 
@@ -210,18 +200,9 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const snowflakes = Array.from({ length: 100 }, (_, i) => ({
-    id: i,
-    left: Math.random() * 100,
-    animationDuration: 10 + Math.random() * 20,
-    animationDelay: Math.random() * 10,
-    size: 2 + Math.random() * 4,
-  }));
-
   return (
-    <html lang="bs"> {/* Bosanski jezik za SEO */}
+    <html lang="bs">
       <head>
-        {/* Structured Data - JSON-LD za lokalni biznis */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -231,10 +212,10 @@ export default function RootLayout({ children }) {
               "name": "Arena Motors",
               "description": "Prodaja polovnih automobila u Sarajevu",
               "url": "https://arenamotors.ba",
-              "telephone": "+38766444644", // Dodajte pravi broj
+              "telephone": "+38766444644",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "Ive Andrića 6, I. Sarajevo", // Dodajte pravu adresu
+                "streetAddress": "Ive Andrića 6, I. Sarajevo",
                 "addressLocality": "I.Sarajevo",
                 "addressRegion": "I.Sarajevo",
                 "postalCode": "71123",
@@ -242,7 +223,7 @@ export default function RootLayout({ children }) {
               },
               "geo": {
                 "@type": "GeoCoordinates",
-                "latitude": "43.8279425", // Dodajte prave koordinate
+                "latitude": "43.8279425",
                 "longitude": "18.3620791"
               },
               "openingHoursSpecification": [
@@ -262,31 +243,15 @@ export default function RootLayout({ children }) {
               "priceRange": "$$",
               "image": "/logo.png",
               "sameAs": [
-                "https://www.facebook.com/arenasarajevo/", // Dodajte prave linkove
+                "https://www.facebook.com/arenasarajevo/",
                 "https://www.instagram.com/arena_motors_sarajevo/?hl=en"
               ]
             })
           }}
         />
       </head>
-      <body className={`${poppins.variable} antialiased`}>
+      <body className={`${poppins.variable} antialiased page-shell`}>
         <Header />
-        <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden" aria-hidden="true">
-          {snowflakes.map((flake) => (
-            <div
-              key={flake.id}
-              className="absolute top-0 text-white opacity-70 animate-fall"
-              style={{
-                left: `${flake.left}%`,
-                animationDuration: `${flake.animationDuration}s`,
-                animationDelay: `${flake.animationDelay}s`,
-                fontSize: `20px`,
-              }}
-            >
-              ❄
-            </div>
-          ))}
-        </div>
         {children}
       </body>
     </html>

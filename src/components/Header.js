@@ -1,163 +1,147 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
+import Link from "next/link";
 
 export default function Header() {
-    const [isOpen, setIsOpen] = useState(false);
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-    const toggleMenu = () => setIsOpen(!isOpen);
-    const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-    return (
-        <header className="bg-white shadow-sm w-full z-50">
-            <div className="p-4 flex items-center justify-between">
-                {/* Logo */}
-                <a href="/" className="flex items-center gap-2">
-                    <img
-                        src="/logo.png"
-                        className="w-10 h-10 rounded-lg"
-                        alt="Arena Motors Logo"
-                    />
-                    <h1 className="text-xl font-semibold">
-                        <strong>Arena</strong> Motors
-                    </h1>
-                </a>
+  const navItems = [
+    { href: "/", label: "Početna" },
+    { href: "/all-vehicles", label: "Vozila" },
+    // { href: "/journal", label: "Journal" },
+    { href: "/about", label: "O nama" },
+    { href: "/contact", label: "Kontakt" },
+  ];
 
-                {/* Desktop Navigation */}
-                <nav className="hidden md:flex items-center gap-6 text-sm font-medium relative">
-                    <a href="/" className="hover:text-red-500 transition">
-                        Početna
-                    </a>
-                    <a href="/all-vehicles" className="hover:text-red-500 transition">
-                        Aktivni Oglasi
-                    </a>
-                    <a href="/finished-vehicles" className="hover:text-red-500 transition">
-                        Završeni Oglasi
-                    </a>
-                    <a href="/about" className="hover:text-red-500 transition">
-                        O Nama
-                    </a>
-                    <a href="/contact" className="hover:text-red-500 transition">
-                        Kontakt
-                    </a>
+  const serviceItems = [
+    { href: "/financing", label: "Finansiranje" },
+    { href: "/old-for-new", label: "Staro za novo" },
+    { href: "/guarantee", label: "Garancija" },
+    { href: "/finished-vehicles", label: "Prodata vozila" },
+  ];
 
-                    {/* Dropdown */}
-                    <div className="relative group">
-                        <button className="flex items-center gap-1 hover:text-red-500 transition">
-                            Ostalo <ChevronDown size={16} />
-                        </button>
-                        <div className="absolute z-[9999] right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                            <a
-                                href="/financing"
-                                className="block px-4 py-2 hover:bg-gray-100 transition"
-                            >
-                                Finansiranje
-                            </a>
-                            <a
-                                href="/old-for-new"
-                                className="block px-4 py-2 hover:bg-gray-100 transition"
-                            >
-                                Staro za novo
-                            </a>
-                            <a
-                                href="/guarantee"
-                                className="block px-4 py-2 hover:bg-gray-100 transition"
-                            >
-                                Garancija
-                            </a>
-                        </div>
-                    </div>
+  return (
+    <header
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "border-b border-gray-200 bg-white/95 backdrop-blur"
+          : "border-b border-transparent bg-transparent"
+      }`}
+    >
+      <div className="arena-container flex h-20 items-center justify-between">
+        <Link href="/" className="flex items-center gap-3">
+          <img src="/logo.png" className="h-11 w-11 rounded-full object-cover" alt="Arena Motors Logo" />
+          <div>
+            <p className={`text-lg font-semibold tracking-tight transition-colors ${isScrolled ? "text-gray-900" : "text-black"}`}>
+              Arena Motors
+            </p>
+            <p className={`text-xs transition-colors ${isScrolled ? "text-gray-500" : "text-gray-500"}`}>Sarajevo</p>
+          </div>
+        </Link>
 
-                </nav>
-
-                {/* Mobile Menu Button */}
-                <button
-                    onClick={toggleMenu}
-                    className="md:hidden p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition"
-                    aria-label="Toggle menu"
+        <nav
+          className={`relative hidden items-center gap-7 text-sm font-medium transition-colors md:flex ${
+            isScrolled ? "text-gray-700" : "text-gray-700"
+          }`}
+        >
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`transition-colors ${isScrolled ? "hover:text-red-700" : "hover:text-red-700"}`}
+            >
+              {item.label}
+            </Link>
+          ))}
+          <div className="group relative">
+            <button className={`flex items-center gap-1 transition-colors ${isScrolled ? "hover:text-red-700" : "hover:text-white"}`}>
+              Usluge <ChevronDown size={16} />
+            </button>
+            <div className="invisible absolute right-0 top-8 w-52 rounded-2xl border border-gray-200 bg-white p-2 opacity-0 shadow-xl transition-all duration-200 group-hover:visible group-hover:opacity-100">
+              {serviceItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="block rounded-xl px-3 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-50 hover:text-red-700"
                 >
-                    {isOpen ? <X /> : <Menu />}
-                </button>
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </nav>
+
+        <div className="hidden md:block">
+          <Link href="/contact" className="arena-btn-primary">
+            Posjetite nas
+          </Link>
+        </div>
+
+        <button
+          onClick={() => setIsOpen((prev) => !prev)}
+          className={`rounded-full p-2 md:hidden ${
+            isScrolled ? "border border-gray-200 text-gray-900" : "border border-gray-200 text-gray-900"
+          }`}
+          aria-label="Toggle menu"
+        >
+          {isOpen ? <X size={18} /> : <Menu size={18} />}
+        </button>
+      </div>
+
+      {isOpen && (
+        <div className="border-t border-gray-100 bg-white md:hidden">
+          <nav className="arena-container py-4">
+            <div className="space-y-1">
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="block rounded-xl px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
             </div>
 
-            {/* Mobile Dropdown */}
-            {isOpen && (
-                <div className="md:hidden bg-white border-t border-gray-200 shadow-md">
-                    <nav className="flex flex-col px-4 py-3 space-y-2 text-sm font-medium">
-                        <a
-                            href="/"
-                            className="hover:text-red-500 transition py-2"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            Početna
-                        </a>
-                        <a
-                            href="/all-vehicles"
-                            className="hover:text-red-500 transition py-2"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            Aktivni Oglasi
-                        </a>
-                        <a
-                            href="/finished-vehicles"
-                            className="hover:text-red-500 transition py-2"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            Završeni Oglasi
-                        </a>
-                        <a
-                            href="/about"
-                            className="hover:text-red-500 transition py-2"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            O Nama
-                        </a>
-                        <a
-                            href="/contact"
-                            className="hover:text-red-500 transition py-2"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            Kontakt
-                        </a>
+            <button
+              onClick={() => setIsDropdownOpen((prev) => !prev)}
+              className="mt-3 flex w-full items-center justify-between rounded-xl border border-gray-200 px-4 py-2 text-sm font-medium text-gray-700"
+            >
+              Usluge <ChevronDown size={16} />
+            </button>
 
-                        {/* Mobile Submenu */}
-                        <div>
-                            <button
-                                onClick={toggleDropdown}
-                                className="flex items-center justify-between w-full py-2 hover:text-red-500 transition"
-                            >
-                                Ostalo <ChevronDown size={16} />
-                            </button>
-                            {isDropdownOpen && (
-                                <div className="pl-4 flex flex-col space-y-2">
-                                    <a
-                                        href="/financing"
-                                        className="hover:text-red-500 transition py-1"
-                                        onClick={() => setIsOpen(false)}
-                                    >
-                                        Finansiranje
-                                    </a>
-                                    <a
-                                        href="/old-for-new"
-                                        className="hover:text-red-500 transition py-1"
-                                        onClick={() => setIsOpen(false)}
-                                    >
-                                        Staro za novo
-                                    </a>
-                                    <a
-                                        href="/guarantee"
-                                        className="hover:text-red-500 transition py-1"
-                                        onClick={() => setIsOpen(false)}
-                                    >
-                                        Garancija
-                                    </a>
-                                </div>
-                            )}
-                        </div>
-                    </nav>
-                </div>
+            {isDropdownOpen && (
+              <div className="mt-2 space-y-1">
+                {serviceItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="block rounded-xl px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
             )}
-        </header>
-    );
+
+            <Link href="/contact" className="arena-btn-primary mt-4 w-full" onClick={() => setIsOpen(false)}>
+              Book a Visit
+            </Link>
+          </nav>
+        </div>
+      )}
+    </header>
+  );
 }

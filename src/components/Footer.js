@@ -1,92 +1,80 @@
+import Link from "next/link";
 import { MapIcon } from "lucide-react";
 
 export default function FooterArena() {
-    return (
-        <footer className="w-full px-8 py-16 bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white">
-            <div className="max-w-screen-xl mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-                    <div>
-                        <h3 className="text-2xl font-bold mb-6 bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent">
-                            Arena Motors
-                        </h3>
-                        <p className="text-gray-400 leading-relaxed mb-6">
-                            Vaš pouzdani partner za kupovinu i prodaju premium vozila u Sarajevu.
-                        </p>
-                        <div className="flex gap-4">
-                            <a href="https://www.facebook.com/arenasarajevo/about/?_rdr" className="w-10 h-10 bg-white/10 hover:bg-red-600 rounded-lg flex items-center justify-center transition-all">
-                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                                </svg>
-                            </a>
-                            <a href="https://www.instagram.com/arena_motors_sarajevo/?hl=en" className="w-10 h-10 bg-white/10 hover:bg-red-600 rounded-lg flex items-center justify-center transition-all">
-                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                                </svg>
-                            </a>
-                            <a href="https://maps.app.goo.gl/eRjKChaehvHniv6d8" className="w-10 h-10 bg-white/10 hover:bg-red-600 rounded-lg flex items-center justify-center transition-all">
-                                <MapIcon className="w-5 h-5" />
-                            </a>
-                        </div>
-                    </div>
+  return (
+    <footer className="mt-20 border-t border-gray-200 bg-white">
+      <div className="arena-container py-16">
+        <div className="mb-12 rounded-3xl border border-gray-200 bg-[url('https://res.cloudinary.com/dxo3z5off/image/upload/w_1000/q_auto/f_auto/v1759824792/DSC04098_ehlxcn.jpg')] bg-cover bg-center p-10 text-white">
+          <div className="max-w-2xl rounded-2xl bg-black/55 p-8 backdrop-blur">
+            <p className="arena-eyebrow text-red-300">Trebate pomoć pri odabiru vozila?</p>
+            <h3 className="mt-2 text-3xl font-semibold leading-tight">Naš tim je spreman da vam pomogne oko modela, finansiranja i ponude.</h3>
+            <p className="mt-4 text-sm text-gray-100">Kontaktirajte nas i dogovorite posjetu salonu Arena Motors.</p>
+            <Link href="/contact" className="arena-btn-primary mt-6">
+              Kontaktirajte nas
+            </Link>
+          </div>
+        </div>
 
-                    <div>
-                        <h4 className="font-bold text-lg mb-6 text-white">Linkovi</h4>
-                        <ul className="space-y-3">
-                            <li><a href="/" className="text-gray-400 hover:text-red-400 transition-colors">Početna</a></li>
-                            <li><a href="/all-vehicles" className="text-gray-400 hover:text-red-400 transition-colors">Sva vozila</a></li>
-                            <li><a href="/about" className="text-gray-400 hover:text-red-400 transition-colors">O nama</a></li>
-                            <li><a href="/contact" className="text-gray-400 hover:text-red-400 transition-colors">Kontakt</a></li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h4 className="font-bold text-lg mb-6 text-white">Usluge</h4>
-                        <ul className="space-y-3">
-                            <li><a href="/all-vehicles" className="text-gray-400 hover:text-red-400 transition-colors">Kupovina vozila</a></li>
-                            <li><a href="/contact" className="text-gray-400 hover:text-red-400 transition-colors">Prodaja vozila</a></li>
-                            <li><a href="/contact" className="text-gray-400 hover:text-red-400 transition-colors">Finansiranje</a></li>
-                            <li><a href="/contact" className="text-gray-400 hover:text-red-400 transition-colors">Procjena vozila</a></li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h4 className="font-bold text-lg mb-6 text-white">Kontakt</h4>
-                        <ul className="space-y-4">
-                            <li className="flex items-start gap-3 text-gray-400">
-                                <svg className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                </svg>
-                                <span>Iva Andrić 6, Istočno Sarajevo, Bosna i Hercegovina</span>
-                            </li>
-                            <li className="flex items-start gap-3 text-gray-400">
-                                <svg className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                                </svg>
-                                <span>+387 66 444 644</span>
-                            </li>
-                            <li className="flex items-start gap-3 text-gray-400">
-                                <svg className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                </svg>
-                                <span>info@arenamotors.ba</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div className="border-t border-white/10 pt-8">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-                        <p className="text-gray-400 text-sm text-center md:text-left">
-                            © 2025 Arena Motors. Sva prava zadržana. | Developed by <a href="tel:+38766415295">David Obradović</a>
-                        </p>
-                        <div className="flex gap-6 text-sm">
-                            <a href="/privacy" className="text-gray-400 hover:text-red-400 transition-colors">Politika privatnosti</a>
-                            <a href="/terms" className="text-gray-400 hover:text-red-400 transition-colors">Uslovi korištenja</a>
-                        </div>
-                    </div>
-                </div>
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <h3 className="text-xl font-semibold">Arena Motors</h3>
+            <p className="mt-3 text-sm leading-relaxed text-gray-600">
+              Premium iskustvo kupovine i prodaje vozila u Istočnom Sarajevu.
+            </p>
+            <div className="mt-4 flex gap-3 text-sm">
+              <a className="rounded-full border border-gray-200 px-3 py-1.5 hover:bg-gray-50" href="https://www.facebook.com/arenasarajevo/">
+                Facebook
+              </a>
+              <a className="rounded-full border border-gray-200 px-3 py-1.5 hover:bg-gray-50" href="https://www.instagram.com/arena_motors_sarajevo/?hl=en">
+                Instagram
+              </a>
+              <a className="rounded-full border border-gray-200 px-3 py-1.5 hover:bg-gray-50" href="https://maps.app.goo.gl/eRjKChaehvHniv6d8">
+                <MapIcon className="h-4 w-4" />
+              </a>
             </div>
-        </footer>
-    )
+          </div>
+
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wide text-gray-500">Navigacija</h4>
+            <div className="mt-4 space-y-3 text-sm">
+              <Link href="/" className="block hover:text-red-700">Početna</Link>
+              <Link href="/all-vehicles" className="block hover:text-red-700">Vozila</Link>
+              {/* <Link href="/journal" className="block hover:text-red-700">Journal</Link> */}
+              <Link href="/about" className="block hover:text-red-700">O nama</Link>
+              <Link href="/contact" className="block hover:text-red-700">Kontakt</Link>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wide text-gray-500">Usluge</h4>
+            <div className="mt-4 space-y-3 text-sm">
+              <Link href="/financing" className="block hover:text-red-700">Finansiranje</Link>
+              <Link href="/old-for-new" className="block hover:text-red-700">Staro za novo</Link>
+              <Link href="/guarantee" className="block hover:text-red-700">Garancija</Link>
+              <Link href="/finished-vehicles" className="block hover:text-red-700">Prodata vozila</Link>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wide text-gray-500">Kontakt</h4>
+            <div className="mt-4 space-y-2 text-sm text-gray-600">
+              <p>Ive Andrića 6, Istočno Sarajevo</p>
+              <p>+387 66 444 644</p>
+              <p>info@arenamotors.ba</p>
+              <p>Pon-Sub: 09:00 - 17:00</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-gray-200 pt-6 text-xs text-gray-500 md:flex-row">
+          <p>© 2026 Arena Motors. Sva prava zadržana.</p>
+          <div className="flex gap-4">
+            <Link href="/privacy" className="hover:text-red-700">Politika privatnosti</Link>
+            <Link href="/terms" className="hover:text-red-700">Uslovi korištenja</Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 }

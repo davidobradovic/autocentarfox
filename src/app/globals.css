@@ -1,35 +1,157 @@
 @import "tailwindcss";
 
 :root {
-  --font-poppins: 'Poppins', sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+  --arena-bg: #f5f4f0;
+  --arena-surface: #ffffff;
+  --arena-ink: #18181b;
+  --arena-muted: #6b7280;
+  --arena-border: #e5e7eb;
+  --arena-brand: #b91c1c;
+  --arena-brand-dark: #7f1d1d;
 }
 
-* {
-    transition: all 0.3s ease;
-    font-family: var(--font-poppins);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-@media (min-width: 1280px) {
-    .main-section {
-        height: 90vh;
-    }
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-poppins);
+  color: var(--arena-ink);
+  background: var(--arena-bg);
 }
 
-@media (max-width: 1280px) {
-    .main-section {
-        background-position: center;
-        align-items: center;
-        height: 50vh;
-    }
+.page-shell {
+  min-height: 100vh;
+  background: var(--arena-bg);
 }
-@keyframes fall {
-          0% {
-            transform: translateY(-10vh) rotate(0deg);
-          }
-          100% {
-            transform: translateY(110vh) rotate(360deg);
-          }
-        }
-        .animate-fall {
-          animation: fall linear infinite;
-        }
+
+.arena-container {
+  width: 100%;
+  max-width: 1220px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.arena-section {
+  padding-block: 5rem;
+}
+
+.arena-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--arena-brand);
+}
+
+.arena-title {
+  margin-top: 0.75rem;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  font-weight: 600;
+}
+
+.arena-subtitle {
+  margin-top: 1rem;
+  max-width: 48rem;
+  color: var(--arena-muted);
+  line-height: 1.75;
+}
+
+.arena-card {
+  border-radius: 1.25rem;
+  border: 1px solid var(--arena-border);
+  background: var(--arena-surface);
+}
+
+.arena-btn-primary,
+.arena-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 0.75rem 1.4rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.arena-btn-primary {
+  border: 1px solid var(--arena-brand);
+  background: var(--arena-brand);
+  color: #fff;
+}
+
+.arena-btn-primary:hover {
+  border-color: var(--arena-brand-dark);
+  background: var(--arena-brand-dark);
+}
+
+.arena-btn-secondary {
+  border: 1px solid var(--arena-border);
+  background: #fff;
+  color: var(--arena-ink);
+}
+
+.arena-btn-secondary:hover {
+  border-color: #d1d5db;
+  background: #f9fafb;
+}
+
+@keyframes arenaPartnerScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.arena-marquee {
+  max-width: 980px;
+  margin-inline: auto;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.arena-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: arenaPartnerScroll 24s linear infinite;
+}
+
+.arena-marquee:hover .arena-marquee-track {
+  animation-play-state: paused;
+}
+
+.arena-partner-item {
+  flex: 0 0 240px;
+  padding-inline: 0.5rem;
+}
+
+.arena-partner-logo {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.8;
+  transition: all 0.2s ease;
+}
+
+.arena-partner-item:hover .arena-partner-logo {
+  opacity: 1;
+  filter: grayscale(0) brightness(1) invert(0);
+}
+
+@media (max-width: 768px) {
+  .arena-partner-item {
+    flex-basis: 180px;
+  }
+}
