@@ -23,10 +23,10 @@
 // });
 
 // export const metadata = {
-//   title: 'Arena Motors – Mjesto za dobre automobile',
-//   description: 'Arena Motors nudi finansiranje, servis automobila i veliki izbor vozila za kupce luksuznih automobila u Sarajevu, BiH. Arena Motors je vrhunski prodavac automobila.',
+//   title: 'Auto Centar FOX – Mjesto za dobre automobile',
+//   description: 'Auto Centar FOX nudi finansiranje, servis automobila i veliki izbor vozila za kupce luksuznih automobila u Sarajevu, BiH. Auto Centar FOX je vrhunski prodavac automobila.',
 //   keywords: [
-//     'Arena Motors', 'Automobili', 'vozila', 'bih',
+//     'Auto Centar FOX', 'Automobili', 'vozila', 'bih',
 //     'prodaja vozila', 'luksuzni automobili', 'sarajevo', 'auto salon', 'prodavac automobila'
 //   ],
 //   icons: {
@@ -90,10 +90,10 @@ const poppins = Sora({
 export const metadata = {
   metadataBase: new URL("https://arenamotors.ba"),
   // Glavni naslov - uključuje lokaciju i ključne riječi
-  title: 'Arena Motors Sarajevo | Prodaja Automobila i Polovnih Vozila BiH',
+  title: 'Auto Centar FOX Sarajevo | Prodaja Automobila i Polovnih Vozila BiH',
 
   // Meta description - 150-160 karaktera, prirodan tekst sa ključnim riječima
-  description: 'Arena Motors - vodeći auto salon u Sarajevu. Prodaja novih i polovnih automobila, luksuzna vozila, finansiranje, auto servis. Najbolji izbor automobila u Bosni i Hercegovini.',
+  description: 'Auto Centar FOX - vodeći auto salon u Sarajevu. Prodaja novih i polovnih automobila, luksuzna vozila, finansiranje, auto servis. Najbolji izbor automobila u Bosni i Hercegovini.',
 
   // Bosnijske ključne riječi - najvažnije za lokalno SEO
   keywords: [
@@ -101,7 +101,7 @@ export const metadata = {
     'auto salon Sarajevo',
     'prodaja automobila Sarajevo',
     'polovni automobili Sarajevo',
-    'Arena Motors',
+    'Auto Centar FOX',
     'vozila Sarajevo',
 
     // Sekundarne ključne riječi
@@ -130,15 +130,15 @@ export const metadata = {
     type: 'website',
     locale: 'bs_BA',
     url: 'https://arenamotors.ba',
-    siteName: 'Arena Motors',
-    title: 'Arena Motors Sarajevo - Prodaja Automobila | Auto Salon',
+    siteName: 'Auto Centar FOX',
+    title: 'Auto Centar FOX Sarajevo - Prodaja Automobila | Auto Salon',
     description: 'Vodeći auto salon u Sarajevu. Prodaja novih i polovnih automobila, luksuzna vozila, finansiranje i servis. Posjetite nas danas!',
     images: [
       {
         url: '/og_image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Arena Motors - Auto Salon Sarajevo',
+        alt: 'Auto Centar FOX - Auto Salon Sarajevo',
       },
     ],
   },
@@ -146,16 +146,16 @@ export const metadata = {
   // Twitter Card
   twitter: {
     card: 'summary_large_image',
-    title: 'Arena Motors Sarajevo - Prodaja Automobila',
+    title: 'Auto Centar FOX Sarajevo - Prodaja Automobila',
     description: 'Vodeći auto salon u Sarajevu. Najbolji izbor vozila u BiH.',
     images: ['/og_image.jpg'],
   },
 
   // Favicon i Apple ikone
   icons: {
-    icon: [{ url: "/logo.png?v=3", type: "image/png" }],
-    shortcut: ["/logo.png?v=3"],
-    apple: [{ url: "/logo.png?v=3", type: "image/png" }],
+    icon: [{ url: "/https://d4n0y8dshd77z.cloudfront.net/avatars/3704444/OLX.ba8750185717208038184-01849232170b.jpg?v=3", type: "image/png" }],
+    shortcut: ["/https://d4n0y8dshd77z.cloudfront.net/avatars/3704444/OLX.ba8750185717208038184-01849232170b.jpg?v=3"],
+    apple: [{ url: "/https://d4n0y8dshd77z.cloudfront.net/avatars/3704444/OLX.ba8750185717208038184-01849232170b.jpg?v=3", type: "image/png" }],
   },
 
 
@@ -209,10 +209,10 @@ export default function RootLayout({ children }) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "AutoDealer",
-              "name": "Arena Motors",
+              "name": "Auto Centar FOX",
               "description": "Prodaja polovnih automobila u Sarajevu",
               "url": "https://arenamotors.ba",
-              "telephone": "+38766444644",
+              "telephone": "+38766333400",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Ive Andrića 6, I. Sarajevo",
@@ -241,7 +241,7 @@ export default function RootLayout({ children }) {
                 }
               ],
               "priceRange": "$$",
-              "image": "/logo.png",
+              "image": "/https://d4n0y8dshd77z.cloudfront.net/avatars/3704444/OLX.ba8750185717208038184-01849232170b.jpg",
               "sameAs": [
                 "https://www.facebook.com/arenasarajevo/",
                 "https://www.instagram.com/arena_motors_sarajevo/?hl=en"

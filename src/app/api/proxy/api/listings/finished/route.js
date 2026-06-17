@@ -3,7 +3,7 @@ export async function GET(request) {
     const page = searchParams.get('page') || 1;
 
     try {
-        const response = await fetch(`https://olx.ba/api/users/ArenaMotors/listings/finished?page=${page}`, {
+        const response = await fetch(`https://olx.ba/api/users/AC_FOX/listings/finished?page=${page}`, {
             headers: {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
             },

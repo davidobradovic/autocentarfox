@@ -40,7 +40,7 @@ export default function VehiclePage() {
   useEffect(() => {
     const fetchRelated = async () => {
       try {
-        const res = await fetch("/api/proxy/api/search?attr=&attr_encoded=1&user_id=3300229&per_page=4");
+        const res = await fetch("/api/proxy/api/search?attr=&attr_encoded=1&user_id=3704444&per_page=4");
         const data = await res.json();
         setRelated((data?.data || []).filter((item) => String(item.id) !== String(id)).slice(0, 3));
       } catch {
@@ -198,10 +198,10 @@ export default function VehiclePage() {
   }, [totalImages]);
 
   if (loading) {
-    return <div className="arena-container py-20 text-center text-gray-500">Učitavanje vozila...</div>;
+    return <div className="fox-container py-20 text-center text-gray-500">Učitavanje vozila...</div>;
   }
   if (error || !vehicle) {
-    return <div className="arena-container py-20 text-center text-red-600">{error || "Vozilo nije pronađeno."}</div>;
+    return <div className="fox-container py-20 text-center text-red-600">{error || "Vozilo nije pronađeno."}</div>;
   }
 
   return (
@@ -212,7 +212,7 @@ export default function VehiclePage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35, ease: "easeOut" }}
       >
-        <div className="arena-container py-12">
+        <div className="fox-container py-12">
           
           <div className="mt-4 flex flex-col items-center gap-6">
             <div>
@@ -225,8 +225,8 @@ export default function VehiclePage() {
               <p className="text-sm text-gray-500">Cijena</p>
               <p className=" text-4xl font-semibold">{vehicle.display_price}</p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <a href="tel:+38766444644" className="arena-btn-primary">Pozovite nas</a>
-                <Link href="/contact" className="arena-btn-secondary">Zakaži posjetu</Link>
+                <a href="tel:+38766333400" className="fox-btn-primary">Pozovite nas</a>
+                <Link href="/contact" className="fox-btn-secondary">Zakaži posjetu</Link>
               </div>
             </div>
           </div>
@@ -234,13 +234,13 @@ export default function VehiclePage() {
       </motion.section>
 
       <motion.section
-        className="arena-section"
+        className="fox-section"
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.12 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
       >
-        <div className="arena-container grid gap-6 lg:grid-cols-[2fr_1fr]">
+        <div className="fox-container grid gap-6 lg:grid-cols-[2fr_1fr]">
           <div className="overflow-hidden">
             <div
               className="relative aspect-[16/10]"
@@ -331,7 +331,7 @@ export default function VehiclePage() {
             )}
           </div>
 
-          <aside className="arena-card p-6">
+          <aside className="fox-card p-6">
             <h3 className="text-lg font-semibold">Specifikacije</h3>
             <div className="mt-4 max-h-[520px] space-y-2 overflow-auto pr-1 text-sm">
               {specifications.map((item) => (
@@ -346,8 +346,8 @@ export default function VehiclePage() {
         </div>
       </motion.section>
 
-      <section className="arena-section bg-white">
-        <div className="arena-container grid gap-8 lg:grid-cols-[1.4fr_1fr]">
+      <section className="fox-section bg-white">
+        <div className="fox-container grid gap-8 lg:grid-cols-[1.4fr_1fr]">
           <div>
             <h2 className="text-3xl font-semibold">Detaljni opis</h2>
             <div
@@ -365,7 +365,7 @@ export default function VehiclePage() {
 
           
 
-          <div className="arena-card self-start p-6 lg:sticky lg:top-24">
+          <div className="fox-card self-start p-6 lg:sticky lg:top-24">
             <h3 className="text-lg font-semibold">Oprema</h3>
             <div className="mt-4 max-h-[65vh] space-y-2 overflow-auto pr-1 text-sm">
               {equipment.map((item) => (
@@ -390,15 +390,15 @@ export default function VehiclePage() {
         </div>
       </section>
 
-      <section className="arena-section">
-        <div className="arena-container">
+      <section className="fox-section">
+        <div className="fox-container">
           <div className="mb-10">
-            <p className="arena-eyebrow">Možda vam se svidja</p>
-            <h2 className="arena-title">Povezana vozila</h2>
+            <p className="fox-eyebrow">Možda vam se svidja</p>
+            <h2 className="fox-title">Povezana vozila</h2>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {related.map((item) => (
-              <Link key={item.id} href={`/vehicles/${item.id}`} className="group arena-card overflow-hidden">
+              <Link key={item.id} href={`/vehicles/${item.id}`} className="group fox-card overflow-hidden">
                 <div className="aspect-[16/11] overflow-hidden bg-gray-100">
                   <img src={item.image?.replace("/sm/", "/lg/")} alt={item.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 </div>

@@ -33,21 +33,21 @@ function FinishedVehiclesContent() {
   return (
     <div>
       <section className="border-b border-gray-200 bg-white">
-        <div className="arena-container py-16 md:py-20">
-          <p className="arena-eyebrow">Archive</p>
-          <h1 className="arena-title">Prodata vozila</h1>
-          <p className="arena-subtitle">
-            Pregled vozila koja su uspješno prodata kroz Arena Motors.
+        <div className="fox-container py-16 md:py-20">
+          <p className="fox-eyebrow">Archive</p>
+          <h1 className="fox-title">Prodata vozila</h1>
+          <p className="fox-subtitle">
+            Pregled vozila koja su uspješno prodata kroz Auto Centar FOX.
           </p>
         </div>
       </section>
 
-      <section className="arena-section">
-        <div className="arena-container">
+      <section className="fox-section">
+        <div className="fox-container">
           {vehicles?.data?.length ? (
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {vehicles.data.map((vehicle) => (
-                <Link key={vehicle.id} href={`/vehicles/${vehicle.id}`} className="group arena-card overflow-hidden">
+                <Link key={vehicle.id} href={`/vehicles/${vehicle.id}`} className="group fox-card overflow-hidden">
                   <div className="aspect-[16/11] overflow-hidden bg-gray-100">
                     <img src={vehicle.image?.replace("/sm/", "/lg/")} alt={vehicle.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                   </div>
@@ -59,7 +59,7 @@ function FinishedVehiclesContent() {
               ))}
             </div>
           ) : (
-            <div className="arena-card p-10 text-center text-gray-500">Nema prodatih vozila za prikaz.</div>
+            <div className="fox-card p-10 text-center text-gray-500">Nema prodatih vozila za prikaz.</div>
           )}
 
           {totalPages > 1 && (
@@ -67,7 +67,7 @@ function FinishedVehiclesContent() {
               <button
                 onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
                 disabled={currentPage === 1}
-                className="arena-btn-secondary disabled:opacity-50"
+                className="fox-btn-secondary disabled:opacity-50"
               >
                 Prev
               </button>
@@ -81,7 +81,7 @@ function FinishedVehiclesContent() {
                       setCurrentPage(page);
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
-                    className={currentPage === page ? "arena-btn-primary" : "arena-btn-secondary"}
+                    className={currentPage === page ? "fox-btn-primary" : "fox-btn-secondary"}
                   >
                     {page}
                   </button>
@@ -90,7 +90,7 @@ function FinishedVehiclesContent() {
               <button
                 onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
                 disabled={currentPage === totalPages}
-                className="arena-btn-secondary disabled:opacity-50"
+                className="fox-btn-secondary disabled:opacity-50"
               >
                 Next
               </button>
@@ -106,7 +106,7 @@ function FinishedVehiclesContent() {
 
 export default function FinishedVehiclesPage() {
   return (
-    <Suspense fallback={<div className="arena-container py-20 text-center text-gray-500">Učitavanje...</div>}>
+    <Suspense fallback={<div className="fox-container py-20 text-center text-gray-500">Učitavanje...</div>}>
       <FinishedVehiclesContent />
     </Suspense>
   );

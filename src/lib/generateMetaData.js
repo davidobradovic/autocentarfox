@@ -10,19 +10,19 @@ export async function generateMetadata({ params }) {
         const firstImage = vehicle.images?.[0] || "/default-car.jpg";
 
         return {
-            title: vehicle.title || "Arena Motors",
+            title: vehicle.title || "Auto Centar FOX",
             description: vehicle.additional?.description || "Saznajte više o ovom vozilu.",
             keywords: [
                 vehicle.brand?.name,
                 vehicle.model?.name,
-                "Arena Motors",
+                "Auto Centar FOX",
                 "cars",
                 "helmets",
             ],
             openGraph: {
                 title: vehicle.title,
                 description: vehicle.additional?.description,
-                url: `https://arena-motors.com/vehicles/${id}`,
+                url: `https://fox-motors.com/vehicles/${id}`,
                 images: [
                     {
                         url: firstImage,
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }) {
         };
     } catch (err) {
         return {
-            title: "Arena Motors",
+            title: "Auto Centar FOX",
             description: "Vozilo nije pronađeno",
         };
     }
